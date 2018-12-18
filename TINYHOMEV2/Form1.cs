@@ -16,5 +16,10 @@ namespace TINYHOMEV2
         {
             InitializeComponent();
         }
+
+        private void Form1_Resize(object sender, EventArgs e)
+        {
+
+        }
     }
 }
