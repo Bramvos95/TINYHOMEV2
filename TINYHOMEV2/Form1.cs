@@ -21,5 +21,13 @@ namespace TINYHOMEV2
         {
 
         }
+
+        private void lblUitloggen_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            this.Hide();
+
+            LoginForm lf = new LoginForm();
+            lf.Show();
+        }
     }
 }
