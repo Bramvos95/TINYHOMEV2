@@ -39,10 +39,17 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.tableLayoutPanel16 = new System.Windows.Forms.TableLayoutPanel();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel13 = new System.Windows.Forms.TableLayoutPanel();
             this.flowLayoutPanel14 = new System.Windows.Forms.FlowLayoutPanel();
             this.checkBox6 = new System.Windows.Forms.CheckBox();
+            this.checkBox7 = new System.Windows.Forms.CheckBox();
+            this.checkBox8 = new System.Windows.Forms.CheckBox();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
@@ -74,21 +81,16 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
             this.lblUitloggen = new System.Windows.Forms.LinkLabel();
-            this.tableLayoutPanel16 = new System.Windows.Forms.TableLayoutPanel();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.checkBox7 = new System.Windows.Forms.CheckBox();
-            this.checkBox8 = new System.Windows.Forms.CheckBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.btnInstellingen = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
             this.tableLayoutPanel12.SuspendLayout();
             this.flowLayoutPanel12.SuspendLayout();
             this.tableLayoutPanel15.SuspendLayout();
+            this.tableLayoutPanel16.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             this.tableLayoutPanel13.SuspendLayout();
             this.flowLayoutPanel14.SuspendLayout();
@@ -113,7 +115,6 @@
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel2.SuspendLayout();
-            this.tableLayoutPanel16.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -249,6 +250,63 @@
             this.label1.TabIndex = 5;
             this.label1.Text = "Bedroom";
             // 
+            // tableLayoutPanel16
+            // 
+            this.tableLayoutPanel16.ColumnCount = 2;
+            this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 13F));
+            this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 87F));
+            this.tableLayoutPanel16.Controls.Add(this.button2, 0, 2);
+            this.tableLayoutPanel16.Controls.Add(this.button4, 0, 1);
+            this.tableLayoutPanel16.Controls.Add(this.button6, 0, 0);
+            this.tableLayoutPanel16.Controls.Add(this.label3, 1, 1);
+            this.tableLayoutPanel16.Location = new System.Drawing.Point(3, 77);
+            this.tableLayoutPanel16.Name = "tableLayoutPanel16";
+            this.tableLayoutPanel16.RowCount = 3;
+            this.tableLayoutPanel16.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 48.88889F));
+            this.tableLayoutPanel16.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 51.11111F));
+            this.tableLayoutPanel16.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 22F));
+            this.tableLayoutPanel16.Size = new System.Drawing.Size(200, 68);
+            this.tableLayoutPanel16.TabIndex = 1;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(0, 45);
+            this.button2.Margin = new System.Windows.Forms.Padding(0);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(20, 20);
+            this.button2.TabIndex = 4;
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(0, 22);
+            this.button4.Margin = new System.Windows.Forms.Padding(0);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(20, 20);
+            this.button4.TabIndex = 2;
+            this.button4.UseVisualStyleBackColor = true;
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(0, 0);
+            this.button6.Margin = new System.Windows.Forms.Padding(0);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(20, 20);
+            this.button6.TabIndex = 0;
+            this.button6.UseVisualStyleBackColor = true;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Open Sans", 13F);
+            this.label3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label3.Location = new System.Drawing.Point(29, 22);
+            this.label3.Name = "label3";
+            this.label3.Padding = new System.Windows.Forms.Padding(0, 0, 0, 3);
+            this.label3.Size = new System.Drawing.Size(89, 23);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "Bedroom";
+            // 
             // pictureBox9
             // 
             this.pictureBox9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(170)))), ((int)(((byte)(249)))));
@@ -303,6 +361,32 @@
             this.checkBox6.TabIndex = 3;
             this.checkBox6.Text = "checkBox6";
             this.checkBox6.UseVisualStyleBackColor = true;
+            // 
+            // checkBox7
+            // 
+            this.checkBox7.AutoSize = true;
+            this.checkBox7.Font = new System.Drawing.Font("Open Sans", 13F);
+            this.checkBox7.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.checkBox7.Location = new System.Drawing.Point(20, 43);
+            this.checkBox7.Margin = new System.Windows.Forms.Padding(20, 5, 40, 5);
+            this.checkBox7.Name = "checkBox7";
+            this.checkBox7.Size = new System.Drawing.Size(119, 28);
+            this.checkBox7.TabIndex = 4;
+            this.checkBox7.Text = "checkBox7";
+            this.checkBox7.UseVisualStyleBackColor = true;
+            // 
+            // checkBox8
+            // 
+            this.checkBox8.AutoSize = true;
+            this.checkBox8.Font = new System.Drawing.Font("Open Sans", 13F);
+            this.checkBox8.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.checkBox8.Location = new System.Drawing.Point(20, 81);
+            this.checkBox8.Margin = new System.Windows.Forms.Padding(20, 5, 40, 5);
+            this.checkBox8.Name = "checkBox8";
+            this.checkBox8.Size = new System.Drawing.Size(119, 28);
+            this.checkBox8.TabIndex = 5;
+            this.checkBox8.Text = "checkBox8";
+            this.checkBox8.UseVisualStyleBackColor = true;
             // 
             // pictureBox8
             // 
@@ -709,6 +793,7 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.btnInstellingen);
             this.panel2.Controls.Add(this.lblUitloggen);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -716,15 +801,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(501, 98);
             this.panel2.TabIndex = 2;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(16, 20);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "label2";
             // 
             // lblUitloggen
             // 
@@ -739,88 +815,24 @@
             this.lblUitloggen.Text = "Log out";
             this.lblUitloggen.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblUitloggen_LinkClicked);
             // 
-            // tableLayoutPanel16
+            // label2
             // 
-            this.tableLayoutPanel16.ColumnCount = 2;
-            this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 13F));
-            this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 87F));
-            this.tableLayoutPanel16.Controls.Add(this.button2, 0, 2);
-            this.tableLayoutPanel16.Controls.Add(this.button4, 0, 1);
-            this.tableLayoutPanel16.Controls.Add(this.button6, 0, 0);
-            this.tableLayoutPanel16.Controls.Add(this.label3, 1, 1);
-            this.tableLayoutPanel16.Location = new System.Drawing.Point(3, 77);
-            this.tableLayoutPanel16.Name = "tableLayoutPanel16";
-            this.tableLayoutPanel16.RowCount = 3;
-            this.tableLayoutPanel16.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 48.88889F));
-            this.tableLayoutPanel16.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 51.11111F));
-            this.tableLayoutPanel16.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 22F));
-            this.tableLayoutPanel16.Size = new System.Drawing.Size(200, 68);
-            this.tableLayoutPanel16.TabIndex = 1;
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(16, 20);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "label2";
             // 
-            // button2
+            // btnInstellingen
             // 
-            this.button2.Location = new System.Drawing.Point(0, 45);
-            this.button2.Margin = new System.Windows.Forms.Padding(0);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(20, 20);
-            this.button2.TabIndex = 4;
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(0, 22);
-            this.button4.Margin = new System.Windows.Forms.Padding(0);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(20, 20);
-            this.button4.TabIndex = 2;
-            this.button4.UseVisualStyleBackColor = true;
-            // 
-            // button6
-            // 
-            this.button6.Location = new System.Drawing.Point(0, 0);
-            this.button6.Margin = new System.Windows.Forms.Padding(0);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(20, 20);
-            this.button6.TabIndex = 0;
-            this.button6.UseVisualStyleBackColor = true;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Open Sans", 13F);
-            this.label3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label3.Location = new System.Drawing.Point(29, 22);
-            this.label3.Name = "label3";
-            this.label3.Padding = new System.Windows.Forms.Padding(0, 0, 0, 3);
-            this.label3.Size = new System.Drawing.Size(89, 23);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "Bedroom";
-            // 
-            // checkBox7
-            // 
-            this.checkBox7.AutoSize = true;
-            this.checkBox7.Font = new System.Drawing.Font("Open Sans", 13F);
-            this.checkBox7.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.checkBox7.Location = new System.Drawing.Point(20, 43);
-            this.checkBox7.Margin = new System.Windows.Forms.Padding(20, 5, 40, 5);
-            this.checkBox7.Name = "checkBox7";
-            this.checkBox7.Size = new System.Drawing.Size(119, 28);
-            this.checkBox7.TabIndex = 4;
-            this.checkBox7.Text = "checkBox7";
-            this.checkBox7.UseVisualStyleBackColor = true;
-            // 
-            // checkBox8
-            // 
-            this.checkBox8.AutoSize = true;
-            this.checkBox8.Font = new System.Drawing.Font("Open Sans", 13F);
-            this.checkBox8.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.checkBox8.Location = new System.Drawing.Point(20, 81);
-            this.checkBox8.Margin = new System.Windows.Forms.Padding(20, 5, 40, 5);
-            this.checkBox8.Name = "checkBox8";
-            this.checkBox8.Size = new System.Drawing.Size(119, 28);
-            this.checkBox8.TabIndex = 5;
-            this.checkBox8.Text = "checkBox8";
-            this.checkBox8.UseVisualStyleBackColor = true;
+            this.btnInstellingen.Location = new System.Drawing.Point(19, 51);
+            this.btnInstellingen.Name = "btnInstellingen";
+            this.btnInstellingen.Size = new System.Drawing.Size(75, 23);
+            this.btnInstellingen.TabIndex = 1;
+            this.btnInstellingen.Text = "Settings";
+            this.btnInstellingen.UseVisualStyleBackColor = true;
+            this.btnInstellingen.Click += new System.EventHandler(this.btnInstellingen_Click);
             // 
             // Form1
             // 
@@ -839,6 +851,8 @@
             this.flowLayoutPanel12.ResumeLayout(false);
             this.tableLayoutPanel15.ResumeLayout(false);
             this.tableLayoutPanel15.PerformLayout();
+            this.tableLayoutPanel16.ResumeLayout(false);
+            this.tableLayoutPanel16.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             this.tableLayoutPanel13.ResumeLayout(false);
             this.flowLayoutPanel14.ResumeLayout(false);
@@ -867,8 +881,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            this.tableLayoutPanel16.ResumeLayout(false);
-            this.tableLayoutPanel16.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -929,6 +941,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.CheckBox checkBox7;
         private System.Windows.Forms.CheckBox checkBox8;
+        private System.Windows.Forms.Button btnInstellingen;
     }
 }
 

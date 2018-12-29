@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,7 +18,7 @@ namespace TINYHOMEV2
         {
             InitializeComponent();
         }
-
+      
         private void Form1_Resize(object sender, EventArgs e)
         {
 
@@ -28,6 +30,12 @@ namespace TINYHOMEV2
 
             LoginForm lf = new LoginForm();
             lf.Show();
+        }
+
+        private void btnInstellingen_Click(object sender, EventArgs e)
+        {
+            Instellingen instellingen = new Instellingen();
+            instellingen.Show();
         }
     }
 }

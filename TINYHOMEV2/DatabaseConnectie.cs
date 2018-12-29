@@ -115,5 +115,59 @@ namespace TINYHOMEV2
             byte[] inArray = HashAlgorithm.Create("SHA1").ComputeHash(bytes);
             return Convert.ToBase64String(inArray);
         }
+
+        public void nieuweArduino(Arduino arduino)
+        {
+            if (this.OpenConnectie())
+            {
+                string query = "INSERT INTO arduino (Verbinding, Poort, BaudRate, CommandBegin," +
+               "CommandEnd)" +
+               "VALUES(@VerbindingNaam, @Poort, @BaudRate, @CommandBegin," +
+               "@CommandEnd)";
+
+                MySqlCommand cmd = new MySqlCommand(query, connectie);
+                cmd.Parameters.AddWithValue("@VerbindingNaam", arduino.Naam);
+                cmd.Parameters.AddWithValue("@Poort", arduino.Poort);
+                cmd.Parameters.AddWithValue("@BaudRate", arduino.Baudrate);
+                cmd.Parameters.AddWithValue("@CommandBegin", arduino.Commandbegin);
+                cmd.Parameters.AddWithValue("@CommandEnd", arduino.Commandend);
+
+                cmd.ExecuteNonQuery();
+                this.SluitConnectie();
+                
+            }
+        } 
+
+        public List<Arduino> arduinos()
+        {
+            List<Arduino> arduino = new List<Arduino>();
+
+            string query = "SELECT * FROM arduino";
+            if (this.OpenConnectie())
+            {
+                MySqlCommand cmd = new MySqlCommand(query, connectie);
+                MySqlDataReader datareader = cmd.ExecuteReader();
+
+                while (datareader.Read())
+                {
+                    Arduino arduinos = new Arduino
+                    {
+                        Id = (int)(datareader["idArduino"]),
+                        Baudrate = (int)(datareader["BaudRate"]),
+                        Commandbegin  = ConverteerString(datareader["CommandBegin"]),
+                        Commandend = ConverteerString(datareader["CommandEnd"]),
+                        Naam = ConverteerString(datareader["Verbinding"]),
+                        Poort = ConverteerString(datareader["Poort"])
+                    };
+                    arduino.Add(arduinos);
+                }
+                this.SluitConnectie();
+            }
+            return arduino;
+        }
+        private string ConverteerString(Object obj)
+        {
+            return (DBNull.Value != obj) ? (string)obj : null;
+        }
     }
 }
