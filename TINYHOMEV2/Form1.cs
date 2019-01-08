@@ -113,5 +113,42 @@ namespace TINYHOMEV2
             //    arduinoColorPanel.BackColor = Color.FromArgb(arduinoColorPanel.BackColor.R, arduinoColorPanel.BackColor.G, value);
             //}
         }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            SetLed("SET_KITCHENLED: 1", "SET_KITCHENLED: 0", sender);
+        }
+
+        private void checkBox2_CheckedChanged(object sender, EventArgs e)
+        {
+            SetLed("SET_GARAGELED: 1", "SET_GARAGELED: 0", sender);
+        }
+
+        private void SetLed(string aan, string uit, object sender)
+        {
+            if (((CheckBox)sender).Checked == true)
+            {
+                sm.SendMessage(aan);
+            }
+            else
+            {
+                sm.SendMessage(uit);
+            }
+        }
+
+        private void checkBox3_CheckedChanged(object sender, EventArgs e)
+        {
+            SetLed("SET_LIVINGROOMLED: 1", "SET_LIVINGROOMLED: 0", sender);
+        }
+
+        private void checkBox4_CheckedChanged(object sender, EventArgs e)
+        {
+            SetLed("SET_BEDROOMLED: 1", "SET_BEDROOMLED: 0", sender);
+        }
+
+        private void checkBox5_CheckedChanged(object sender, EventArgs e)
+        {
+            SetLed("SET_BATHROOMLED: 1", "SET_BATHROOMLED: 0", sender);
+        }
     }
 }
