@@ -165,9 +165,109 @@ namespace TINYHOMEV2
             }
             return arduino;
         }
+        public Arduino Arduinolaatste()
+        {
+            Arduino arduino = new Arduino();
+
+            string query = "SELECT * from arduino ORDER BY idArduino DESC LIMIT 1;";
+            if (this.OpenConnectie())
+            {
+                MySqlCommand cmd = new MySqlCommand(query, connectie);
+                MySqlDataReader datareader = cmd.ExecuteReader();
+
+                while (datareader.Read())
+                {
+                    Arduino arduinos = new Arduino
+                    {
+                        Id = (int)(datareader["idArduino"]),
+                        Baudrate = (int)(datareader["BaudRate"]),
+                        Commandbegin = ConverteerString(datareader["CommandBegin"]),
+                        Commandend = ConverteerString(datareader["CommandEnd"]),
+                        Naam = ConverteerString(datareader["Verbinding"]),
+                        Poort = ConverteerString(datareader["Poort"])
+                    };
+                    arduino = arduinos;
+                }
+                this.SluitConnectie();
+            }
+            return arduino;
+        }
+
         private string ConverteerString(Object obj)
         {
             return (DBNull.Value != obj) ? (string)obj : null;
+        }
+
+        public void Updatelampen(lamp lamp)
+        {
+            string query = "UPDATE lamp SET Staat = @staat WHERE Naam = @naam";
+
+            if (this.OpenConnectie())
+            {
+                MySqlCommand cmd = new MySqlCommand(query, connectie);
+
+                cmd.Parameters.AddWithValue("@Staat", lamp.Status);
+                cmd.Parameters.AddWithValue("@naam", lamp.Naam);
+
+                cmd.ExecuteNonQuery();
+                this.SluitConnectie();
+            }
+        }
+
+        public void UpdateRGB(string hex, string naam)
+        {
+            string query = "UPDATE lamp SET HEXWaarde = @hex WHERE Naam = @naam";
+
+            if (this.OpenConnectie())
+            {
+                MySqlCommand cmd = new MySqlCommand(query, connectie);
+
+                cmd.Parameters.AddWithValue("@hex", hex );
+                cmd.Parameters.AddWithValue("@naam", naam);
+
+                cmd.ExecuteNonQuery();
+                this.SluitConnectie();
+            }
+        }
+
+        public void Thermostaat(decimal luchtvochtigheid, decimal temperatuur)
+        {
+            string query = "UPDATE thermostaat SET Luchtvochtigheid = @Luchtvochtigheid, Temperatuur = @Temperatuur";
+
+            if (this.OpenConnectie())
+            {
+                MySqlCommand cmd = new MySqlCommand(query, connectie);
+
+                cmd.Parameters.AddWithValue("@Luchtvochtigheid", luchtvochtigheid);
+                cmd.Parameters.AddWithValue("@Temperatuur", temperatuur);
+
+                cmd.ExecuteNonQuery();
+                this.SluitConnectie();
+            }
+        }
+
+        public bool FillCheckBox(string naam)
+        {
+            string query = "SELECT Staat from lamp WHERE Naam = @naam";
+            byte staat = 0;
+            if (this.OpenConnectie())
+            {
+                MySqlCommand cmd = new MySqlCommand(query, connectie);
+                cmd.Parameters.AddWithValue("@naam", naam);
+                MySqlDataReader datareader = cmd.ExecuteReader();
+
+                while (datareader.Read())
+                {
+                    staat = (byte)(datareader["staat"]);
+                }
+                this.SluitConnectie();
+            }
+
+            if (staat == 1)
+            {
+                return true;
+            }
+            else { return false; }
         }
     }
 }

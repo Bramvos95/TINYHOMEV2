@@ -13,12 +13,16 @@ namespace TINYHOMEV2
 {
     public partial class Form1 : Form
     {
-        SerialMessenger sm;
+        private SerialMessenger sm;
+        private MessageBuilder ms;
+        private DatabaseConnectie db;
+        private lamp lamp;
         private string portName;
         private int baudRate;
         private char beginCHar;
         private char endChar;
-        MessageBuilder ms;
+        private decimal temperatuur;
+        private decimal luchtvochtigheid;
         private Timer readMessageTimer;
 
 
@@ -26,30 +30,33 @@ namespace TINYHOMEV2
         public int BaudRate { get => baudRate; set => baudRate = value; }
         public char BeginCHar { get => beginCHar; set => beginCHar = value; }
         public char EndChar { get => endChar; set => endChar = value; }
-
+        internal SerialMessenger Sm { get => sm; set => sm = value; }
+        internal MessageBuilder Ms { get => ms; set => ms = value; }
+        internal DatabaseConnectie Db { get => db; set => db = value; }
+        public decimal Temperatuur { get => temperatuur; set => temperatuur = value; }
+        public decimal Luchtvochtigheid { get => luchtvochtigheid; set => luchtvochtigheid = value; }
 
         public Form1()
         {
             InitializeComponent();
             readMessageTimer = new Timer();
+            Db = new DatabaseConnectie();
+            lamp = new lamp();
             readMessageTimer.Interval = 10;
             readMessageTimer.Tick += new EventHandler(ReadMessageTimer_Tick);
+            Connect(Db.Arduinolaatste());
+            FillCheckBox();
         }
       
-        private void Form1_Resize(object sender, EventArgs e)
+        public void Connect(Arduino arduino)
         {
 
-        }
-
-
-        public void Connect()
-        {
-            ms = new MessageBuilder(BeginCHar, EndChar);
-            sm = new SerialMessenger(PortName, BaudRate, ms);
+            Ms = new MessageBuilder(Convert.ToChar(arduino.Commandbegin), Convert.ToChar(arduino.Commandend));
+            Sm = new SerialMessenger(arduino.Poort, arduino.Baudrate, Ms);
 
             try
             {
-                sm.Connect();
+                Sm.Connect();
                 MessageBox.Show("Connected!");
             }
             catch(Exception exc)
@@ -67,13 +74,13 @@ namespace TINYHOMEV2
 
         private void btnInstellingen_Click(object sender, EventArgs e)
         {
-            Instellingen instellingen = new Instellingen();
+            Instellingen instellingen = new Instellingen(this);
             instellingen.Show();
         }
 
         private void ReadMessageTimer_Tick(object sender, EventArgs e)
         {
-            string[] messages = sm.ReadMessages();
+            string[] messages = Sm.ReadMessages();
             if (messages != null)
             {
                 foreach (string message in messages)
@@ -83,13 +90,27 @@ namespace TINYHOMEV2
             }
         }
 
-        /// <summary>
-        /// handle received messages
-        /// </summary>
-        /// <param name="message"></param>
+        public void FillCheckBox()
+        {
+            cbKeuken.Checked = db.FillCheckBox("Keuken") ? true : false;
+            cbWoonkamer.Checked = db.FillCheckBox("Woonkamer") ? true : false;
+            cbBadkamer.Checked = db.FillCheckBox("Badkamer") ? true : false;
+            cbGarage.Checked = db.FillCheckBox("Garage") ? true : false;
+            cbSlaapkamer.Checked = db.FillCheckBox("Slaapkamer") ? true : false;
+        }
+
+
         private void processReceivedMessage(string message)
         {
-            MessageBox.Show(message);
+            if (message.StartsWith("TEMPERATUUR:")){
+                int value = getParamValue(message);
+                lblGraden.Text = value.ToString();
+                Temperatuur = value;
+            }else if (message.StartsWith("LUCHTVOCHTIGHEID:")){
+                int value = getParamValue(message);
+                lblLuchtvochtigheid.Text = value.ToString();
+                Luchtvochtigheid = value;
+            }
             //if (message == "ARDUINO_CONTROL")
             //{
             //    whoIsInControlLabel.Text = "Arduino";
@@ -113,42 +134,150 @@ namespace TINYHOMEV2
             //    arduinoColorPanel.BackColor = Color.FromArgb(arduinoColorPanel.BackColor.R, arduinoColorPanel.BackColor.G, value);
             //}
         }
+        private int getParamValue(string message)
+        {
+            int colonIndex = message.IndexOf(':');
+            if (colonIndex != -1)
+            {
+                string param = message.Substring(colonIndex + 1);
+                int value;
+                bool done = int.TryParse(param, out value);
+                if (done)
+                {
+                    return value;
+                }
+            }
+            throw new ArgumentException("message contains no value parameter");
+        }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-            SetLed("SET_KITCHENLED: 1", "SET_KITCHENLED: 0", sender);
+            lamp.Naam = "Keuken";
+            SetLed("SET_KITCHENLED:TRUE", "SET_KITCHENLED:FALSE", sender);
         }
 
         private void checkBox2_CheckedChanged(object sender, EventArgs e)
         {
-            SetLed("SET_GARAGELED: 1", "SET_GARAGELED: 0", sender);
+            lamp.Naam = "Garage";
+            SetLed("SET_GARAGELED:TRUE", "SET_GARAGELED:FALSE", sender);
+        }
+
+        private void checkBox3_CheckedChanged(object sender, EventArgs e)
+        {
+            lamp.Naam = "Woonkamer";
+            SetLed("SET_LIVINGROOMLED:TRUE", "SET_LIVINGROOMLED:FALSE", sender);
+        }
+
+        private void checkBox4_CheckedChanged(object sender, EventArgs e)
+        {
+            lamp.Naam = "Slaapkamer";
+            SetLed("SET_BEDROOMLED:TRUE", "SET_BEDROOMLED:FALSE", sender);
+        }
+
+        private void checkBox5_CheckedChanged(object sender, EventArgs e)
+        {
+            lamp.Naam = "Badkamer";
+            SetLed("SET_BATHROOMLED:TRUE", "SET_BATHROOMLED:FALSE", sender);
+        }
+        private void checkBox1_CheckedChanged_1(object sender, EventArgs e)
+        {
+            lamp.Naam = "Woonkamer_Stalamp";
+            SetLed("SET_BEDROOMLED:TRUE", "SET_BEDROOMLED:FALSE", sender);
+        }
+
+        private void checkBox2_CheckedChanged_1(object sender, EventArgs e)
+        {
+            lamp.Naam = "Slaapkamer_Stalamp";
+            SetLed("SET_BEDROOMLED:TRUE", "SET_BEDROOMLED:FALSE", sender);
+        }
+        private void checkBox6_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox6.Checked == true)
+            {
+                Sm.SendMessage("SET_FRONTDOORLOCK:TRUE");
+            }
+            else
+            {
+                Sm.SendMessage("SET_FRONTDOORLOCK:FALSE");
+            }
         }
 
         private void SetLed(string aan, string uit, object sender)
         {
             if (((CheckBox)sender).Checked == true)
             {
-                sm.SendMessage(aan);
+                Sm.SendMessage(aan);
+                lamp.Status = 1;
+                Db.Updatelampen(lamp);
             }
             else
             {
-                sm.SendMessage(uit);
+                Sm.SendMessage(uit);
+                lamp.Status = 0;
+                Db.Updatelampen(lamp);
             }
         }
 
-        private void checkBox3_CheckedChanged(object sender, EventArgs e)
+        private void button8_Click(object sender, EventArgs e)
         {
-            SetLed("SET_LIVINGROOMLED: 1", "SET_LIVINGROOMLED: 0", sender);
+            RGBControl rgb = new RGBControl(this, "RGBLED1");
+            rgb.Show();
         }
 
-        private void checkBox4_CheckedChanged(object sender, EventArgs e)
+        private void button7_Click(object sender, EventArgs e)
         {
-            SetLed("SET_BEDROOMLED: 1", "SET_BEDROOMLED: 0", sender);
+            RGBControl rgb = new RGBControl(this, "RGBLED2");
+            rgb.Show();
+        }
+        
+        private void button1_Click(object sender, EventArgs e)
+        {
+            sm.SendMessage("SET_BEDROOMSHUTTER:TRUE");
         }
 
-        private void checkBox5_CheckedChanged(object sender, EventArgs e)
+        private void button3_Click(object sender, EventArgs e)
         {
-            SetLed("SET_BATHROOMLED: 1", "SET_BATHROOMLED: 0", sender);
+            sm.SendMessage("SET_BEDROOMSHUTTER:STOP");
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            sm.SendMessage("SET_BEDROOMSHUTTER:FALSE");
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            sm.SendMessage("SET_BATHROOMSHUTTER:TRUE");
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            sm.SendMessage("SET_BATHROOMSHUTTER:STOP");
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            sm.SendMessage("SET_BATHROOMSHUTTER:FALSE");
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            sm.SendMessage("SET_GARAGEDOOR:TRUE");
+        }
+
+        private void button8_Click_1(object sender, EventArgs e)
+        {
+            sm.SendMessage("SET_GARAGEDOOR:STOP");
+        }
+
+        private void button7_Click_1(object sender, EventArgs e)
+        {
+            sm.SendMessage("SET_GARAGEDOOR:FALSE");
+        }
+
+        private void label4_TextChanged(object sender, EventArgs e)
+        {
+            db.Thermostaat(Luchtvochtigheid, Temperatuur);
         }
     }
 }

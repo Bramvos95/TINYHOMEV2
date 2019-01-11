@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TINYHOMEV2
 {
-    class Arduino
+    public class Arduino
     {
         private string poort;
         private int baudrate;

@@ -13,13 +13,13 @@ namespace TINYHOMEV2
     public partial class Instellingen : Form
     {
         DatabaseConnectie db;
-        Form1 fm;
+        Form1 parent;
 
-        public Instellingen()
+        public Instellingen(Form1 parent)
         {
             InitializeComponent();
             db = new DatabaseConnectie();
-            fm = new Form1();
+            this.parent = parent;
             listboxVullen();
         }
 
@@ -34,16 +34,13 @@ namespace TINYHOMEV2
                 a.Poort = txtComPoort.Text;
                 a.Naam = txtVerbindingsNaam.Text;
                 db.nieuweArduino(a);
-
-                fm.BaudRate = a.Baudrate;
-                fm.BeginCHar = Convert.ToChar(a.Commandbegin);
-                fm.EndChar = Convert.ToChar(a.Commandend);
-                fm.PortName = a.Poort;
-                fm.Connect();
+                
+                parent.Connect(a);
             }
             else if (listBox1.SelectedIndex != -1)
             {
-                MessageBox.Show("Arduino gekozen.");
+                Arduino a =  (Arduino) listBox1.SelectedValue;
+                parent.Connect(a);
             }
             this.Hide();
         }

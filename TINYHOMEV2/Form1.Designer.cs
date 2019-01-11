@@ -48,8 +48,6 @@
             this.tableLayoutPanel13 = new System.Windows.Forms.TableLayoutPanel();
             this.flowLayoutPanel14 = new System.Windows.Forms.FlowLayoutPanel();
             this.checkBox6 = new System.Windows.Forms.CheckBox();
-            this.checkBox7 = new System.Windows.Forms.CheckBox();
-            this.checkBox8 = new System.Windows.Forms.CheckBox();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
@@ -67,14 +65,16 @@
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
             this.flowLayoutPanel9 = new System.Windows.Forms.FlowLayoutPanel();
+            this.buttonRGB1 = new System.Windows.Forms.Button();
+            this.btnRGB2 = new System.Windows.Forms.Button();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
-            this.checkBox4 = new System.Windows.Forms.CheckBox();
-            this.checkBox5 = new System.Windows.Forms.CheckBox();
+            this.cbKeuken = new System.Windows.Forms.CheckBox();
+            this.cbGarage = new System.Windows.Forms.CheckBox();
+            this.cbWoonkamer = new System.Windows.Forms.CheckBox();
+            this.cbSlaapkamer = new System.Windows.Forms.CheckBox();
+            this.cbBadkamer = new System.Windows.Forms.CheckBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel14 = new System.Windows.Forms.TableLayoutPanel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -84,6 +84,15 @@
             this.btnInstellingen = new System.Windows.Forms.Button();
             this.lblUitloggen = new System.Windows.Forms.LinkLabel();
             this.label2 = new System.Windows.Forms.Label();
+            this.lblGraden = new System.Windows.Forms.Label();
+            this.tableLayoutPanel17 = new System.Windows.Forms.TableLayoutPanel();
+            this.button7 = new System.Windows.Forms.Button();
+            this.button8 = new System.Windows.Forms.Button();
+            this.button9 = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.lblLuchtvochtigheid = new System.Windows.Forms.Label();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
@@ -103,9 +112,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel9.SuspendLayout();
+            this.flowLayoutPanel11.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel8.SuspendLayout();
+            this.flowLayoutPanel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.tableLayoutPanel7.SuspendLayout();
             this.flowLayoutPanel3.SuspendLayout();
@@ -115,6 +126,7 @@
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel2.SuspendLayout();
+            this.tableLayoutPanel17.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -125,7 +137,7 @@
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel14, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(6);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
@@ -144,7 +156,7 @@
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel3, 0, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(6, 218);
-            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(6);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -161,7 +173,7 @@
             this.tableLayoutPanel6.Controls.Add(this.tableLayoutPanel13, 0, 0);
             this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel6.Location = new System.Drawing.Point(863, 425);
-            this.tableLayoutPanel6.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.tableLayoutPanel6.Margin = new System.Windows.Forms.Padding(6);
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
             this.tableLayoutPanel6.RowCount = 1;
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -206,7 +218,7 @@
             this.tableLayoutPanel15.Controls.Add(this.button1, 0, 0);
             this.tableLayoutPanel15.Controls.Add(this.label1, 1, 1);
             this.tableLayoutPanel15.Location = new System.Drawing.Point(6, 6);
-            this.tableLayoutPanel15.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.tableLayoutPanel15.Margin = new System.Windows.Forms.Padding(6);
             this.tableLayoutPanel15.Name = "tableLayoutPanel15";
             this.tableLayoutPanel15.RowCount = 3;
             this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 48.88889F));
@@ -222,7 +234,9 @@
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(40, 38);
             this.button5.TabIndex = 4;
+            this.button5.Text = ".";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button3
             // 
@@ -231,7 +245,9 @@
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(40, 38);
             this.button3.TabIndex = 2;
+            this.button3.Text = "x";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button1
             // 
@@ -240,7 +256,9 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(40, 38);
             this.button1.TabIndex = 0;
+            this.button1.Text = "^";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label1
             // 
@@ -265,7 +283,7 @@
             this.tableLayoutPanel16.Controls.Add(this.button6, 0, 0);
             this.tableLayoutPanel16.Controls.Add(this.label3, 1, 1);
             this.tableLayoutPanel16.Location = new System.Drawing.Point(6, 149);
-            this.tableLayoutPanel16.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.tableLayoutPanel16.Margin = new System.Windows.Forms.Padding(6);
             this.tableLayoutPanel16.Name = "tableLayoutPanel16";
             this.tableLayoutPanel16.RowCount = 3;
             this.tableLayoutPanel16.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 48.88889F));
@@ -281,7 +299,9 @@
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(40, 38);
             this.button2.TabIndex = 4;
+            this.button2.Text = ".";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button4
             // 
@@ -290,7 +310,9 @@
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(40, 38);
             this.button4.TabIndex = 2;
+            this.button4.Text = "x";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button6
             // 
@@ -299,7 +321,9 @@
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(40, 38);
             this.button6.TabIndex = 0;
+            this.button6.Text = "^";
             this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // label3
             // 
@@ -310,9 +334,9 @@
             this.label3.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label3.Name = "label3";
             this.label3.Padding = new System.Windows.Forms.Padding(0, 0, 0, 6);
-            this.label3.Size = new System.Drawing.Size(158, 45);
+            this.label3.Size = new System.Drawing.Size(168, 45);
             this.label3.TabIndex = 5;
-            this.label3.Text = "Bedroom";
+            this.label3.Text = "Bathroom";
             // 
             // pictureBox9
             // 
@@ -346,9 +370,8 @@
             // flowLayoutPanel14
             // 
             this.flowLayoutPanel14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(114)))), ((int)(((byte)(232)))));
+            this.flowLayoutPanel14.Controls.Add(this.tableLayoutPanel17);
             this.flowLayoutPanel14.Controls.Add(this.checkBox6);
-            this.flowLayoutPanel14.Controls.Add(this.checkBox7);
-            this.flowLayoutPanel14.Controls.Add(this.checkBox8);
             this.flowLayoutPanel14.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel14.Location = new System.Drawing.Point(0, 98);
             this.flowLayoutPanel14.Margin = new System.Windows.Forms.Padding(0);
@@ -361,39 +384,14 @@
             this.checkBox6.AutoSize = true;
             this.checkBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
             this.checkBox6.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.checkBox6.Location = new System.Drawing.Point(40, 10);
+            this.checkBox6.Location = new System.Drawing.Point(40, 153);
             this.checkBox6.Margin = new System.Windows.Forms.Padding(40, 10, 80, 10);
             this.checkBox6.Name = "checkBox6";
-            this.checkBox6.Size = new System.Drawing.Size(220, 43);
+            this.checkBox6.Size = new System.Drawing.Size(271, 43);
             this.checkBox6.TabIndex = 3;
-            this.checkBox6.Text = "checkBox6";
+            this.checkBox6.Text = "Frontdoor lock";
             this.checkBox6.UseVisualStyleBackColor = true;
-            // 
-            // checkBox7
-            // 
-            this.checkBox7.AutoSize = true;
-            this.checkBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
-            this.checkBox7.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.checkBox7.Location = new System.Drawing.Point(40, 73);
-            this.checkBox7.Margin = new System.Windows.Forms.Padding(40, 10, 80, 10);
-            this.checkBox7.Name = "checkBox7";
-            this.checkBox7.Size = new System.Drawing.Size(220, 43);
-            this.checkBox7.TabIndex = 4;
-            this.checkBox7.Text = "checkBox7";
-            this.checkBox7.UseVisualStyleBackColor = true;
-            // 
-            // checkBox8
-            // 
-            this.checkBox8.AutoSize = true;
-            this.checkBox8.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
-            this.checkBox8.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.checkBox8.Location = new System.Drawing.Point(40, 136);
-            this.checkBox8.Margin = new System.Windows.Forms.Padding(40, 10, 80, 10);
-            this.checkBox8.Name = "checkBox8";
-            this.checkBox8.Size = new System.Drawing.Size(220, 43);
-            this.checkBox8.TabIndex = 5;
-            this.checkBox8.Text = "checkBox8";
-            this.checkBox8.UseVisualStyleBackColor = true;
+            this.checkBox6.CheckedChanged += new System.EventHandler(this.checkBox6_CheckedChanged);
             // 
             // pictureBox8
             // 
@@ -417,7 +415,7 @@
             this.tableLayoutPanel5.Controls.Add(this.tableLayoutPanel11, 0, 0);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel5.Location = new System.Drawing.Point(6, 425);
-            this.tableLayoutPanel5.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.tableLayoutPanel5.Margin = new System.Windows.Forms.Padding(6);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 1;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -539,11 +537,11 @@
             this.tableLayoutPanel4.Controls.Add(this.tableLayoutPanel9, 0, 0);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel4.Location = new System.Drawing.Point(863, 6);
-            this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(6);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 408F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 407F));
             this.tableLayoutPanel4.Size = new System.Drawing.Size(845, 407);
             this.tableLayoutPanel4.TabIndex = 1;
             // 
@@ -555,7 +553,7 @@
             this.tableLayoutPanel9.Controls.Add(this.pictureBox5, 0, 0);
             this.tableLayoutPanel9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel9.Location = new System.Drawing.Point(6, 6);
-            this.tableLayoutPanel9.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.tableLayoutPanel9.Margin = new System.Windows.Forms.Padding(6);
             this.tableLayoutPanel9.Name = "tableLayoutPanel9";
             this.tableLayoutPanel9.RowCount = 2;
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
@@ -566,7 +564,8 @@
             // flowLayoutPanel11
             // 
             this.flowLayoutPanel11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(198)))), ((int)(((byte)(88)))));
-            this.flowLayoutPanel11.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel11.Controls.Add(this.lblGraden);
+            this.flowLayoutPanel11.Controls.Add(this.lblLuchtvochtigheid);
             this.flowLayoutPanel11.Location = new System.Drawing.Point(0, 98);
             this.flowLayoutPanel11.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanel11.Name = "flowLayoutPanel11";
@@ -595,11 +594,11 @@
             this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel7, 0, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(6, 6);
-            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(6);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 408F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 407F));
             this.tableLayoutPanel3.Size = new System.Drawing.Size(845, 407);
             this.tableLayoutPanel3.TabIndex = 0;
             // 
@@ -623,12 +622,36 @@
             // flowLayoutPanel9
             // 
             this.flowLayoutPanel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(133)))), ((int)(((byte)(117)))));
+            this.flowLayoutPanel9.Controls.Add(this.buttonRGB1);
+            this.flowLayoutPanel9.Controls.Add(this.checkBox1);
+            this.flowLayoutPanel9.Controls.Add(this.checkBox2);
+            this.flowLayoutPanel9.Controls.Add(this.btnRGB2);
             this.flowLayoutPanel9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel9.Location = new System.Drawing.Point(0, 98);
             this.flowLayoutPanel9.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanel9.Name = "flowLayoutPanel9";
             this.flowLayoutPanel9.Size = new System.Drawing.Size(405, 297);
             this.flowLayoutPanel9.TabIndex = 1;
+            // 
+            // buttonRGB1
+            // 
+            this.buttonRGB1.Location = new System.Drawing.Point(3, 3);
+            this.buttonRGB1.Name = "buttonRGB1";
+            this.buttonRGB1.Size = new System.Drawing.Size(390, 72);
+            this.buttonRGB1.TabIndex = 1;
+            this.buttonRGB1.Text = "LIVINGROOM RGB LED";
+            this.buttonRGB1.UseVisualStyleBackColor = true;
+            this.buttonRGB1.Click += new System.EventHandler(this.button8_Click);
+            // 
+            // btnRGB2
+            // 
+            this.btnRGB2.Location = new System.Drawing.Point(3, 195);
+            this.btnRGB2.Name = "btnRGB2";
+            this.btnRGB2.Size = new System.Drawing.Size(390, 69);
+            this.btnRGB2.TabIndex = 0;
+            this.btnRGB2.Text = "BEDROOM RGB LED ";
+            this.btnRGB2.UseVisualStyleBackColor = true;
+            this.btnRGB2.Click += new System.EventHandler(this.button7_Click);
             // 
             // pictureBox4
             // 
@@ -662,11 +685,11 @@
             // flowLayoutPanel3
             // 
             this.flowLayoutPanel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(184)))), ((int)(((byte)(111)))));
-            this.flowLayoutPanel3.Controls.Add(this.checkBox1);
-            this.flowLayoutPanel3.Controls.Add(this.checkBox2);
-            this.flowLayoutPanel3.Controls.Add(this.checkBox3);
-            this.flowLayoutPanel3.Controls.Add(this.checkBox4);
-            this.flowLayoutPanel3.Controls.Add(this.checkBox5);
+            this.flowLayoutPanel3.Controls.Add(this.cbKeuken);
+            this.flowLayoutPanel3.Controls.Add(this.cbGarage);
+            this.flowLayoutPanel3.Controls.Add(this.cbWoonkamer);
+            this.flowLayoutPanel3.Controls.Add(this.cbSlaapkamer);
+            this.flowLayoutPanel3.Controls.Add(this.cbBadkamer);
             this.flowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel3.Location = new System.Drawing.Point(0, 98);
             this.flowLayoutPanel3.Margin = new System.Windows.Forms.Padding(0);
@@ -674,75 +697,75 @@
             this.flowLayoutPanel3.Size = new System.Drawing.Size(404, 297);
             this.flowLayoutPanel3.TabIndex = 1;
             // 
-            // checkBox1
+            // cbKeuken
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
-            this.checkBox1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.checkBox1.Location = new System.Drawing.Point(40, 10);
-            this.checkBox1.Margin = new System.Windows.Forms.Padding(40, 10, 80, 10);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(241, 43);
-            this.checkBox1.TabIndex = 2;
-            this.checkBox1.Text = "Kitchen LED";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            this.cbKeuken.AutoSize = true;
+            this.cbKeuken.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbKeuken.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.cbKeuken.Location = new System.Drawing.Point(40, 10);
+            this.cbKeuken.Margin = new System.Windows.Forms.Padding(40, 10, 80, 10);
+            this.cbKeuken.Name = "cbKeuken";
+            this.cbKeuken.Size = new System.Drawing.Size(151, 37);
+            this.cbKeuken.TabIndex = 2;
+            this.cbKeuken.Text = "Kitchen";
+            this.cbKeuken.UseVisualStyleBackColor = true;
+            this.cbKeuken.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
-            // checkBox2
+            // cbGarage
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
-            this.checkBox2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.checkBox2.Location = new System.Drawing.Point(40, 73);
-            this.checkBox2.Margin = new System.Windows.Forms.Padding(40, 10, 80, 10);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(240, 43);
-            this.checkBox2.TabIndex = 3;
-            this.checkBox2.Text = "Garage LED";
-            this.checkBox2.UseVisualStyleBackColor = true;
-            this.checkBox2.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
+            this.cbGarage.AutoSize = true;
+            this.cbGarage.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbGarage.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.cbGarage.Location = new System.Drawing.Point(40, 67);
+            this.cbGarage.Margin = new System.Windows.Forms.Padding(40, 10, 80, 10);
+            this.cbGarage.Name = "cbGarage";
+            this.cbGarage.Size = new System.Drawing.Size(218, 37);
+            this.cbGarage.TabIndex = 3;
+            this.cbGarage.Text = "Garage LED";
+            this.cbGarage.UseVisualStyleBackColor = true;
+            this.cbGarage.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
             // 
-            // checkBox3
+            // cbWoonkamer
             // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
-            this.checkBox3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.checkBox3.Location = new System.Drawing.Point(40, 136);
-            this.checkBox3.Margin = new System.Windows.Forms.Padding(40, 10, 80, 10);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(296, 43);
-            this.checkBox3.TabIndex = 4;
-            this.checkBox3.Text = "Livingroom LED";
-            this.checkBox3.UseVisualStyleBackColor = true;
-            this.checkBox3.CheckedChanged += new System.EventHandler(this.checkBox3_CheckedChanged);
+            this.cbWoonkamer.AutoSize = true;
+            this.cbWoonkamer.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbWoonkamer.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.cbWoonkamer.Location = new System.Drawing.Point(40, 124);
+            this.cbWoonkamer.Margin = new System.Windows.Forms.Padding(40, 10, 80, 10);
+            this.cbWoonkamer.Name = "cbWoonkamer";
+            this.cbWoonkamer.Size = new System.Drawing.Size(269, 37);
+            this.cbWoonkamer.TabIndex = 4;
+            this.cbWoonkamer.Text = "Livingroom LED";
+            this.cbWoonkamer.UseVisualStyleBackColor = true;
+            this.cbWoonkamer.CheckedChanged += new System.EventHandler(this.checkBox3_CheckedChanged);
             // 
-            // checkBox4
+            // cbSlaapkamer
             // 
-            this.checkBox4.AutoSize = true;
-            this.checkBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
-            this.checkBox4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.checkBox4.Location = new System.Drawing.Point(40, 199);
-            this.checkBox4.Margin = new System.Windows.Forms.Padding(40, 10, 80, 10);
-            this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(266, 43);
-            this.checkBox4.TabIndex = 5;
-            this.checkBox4.Text = "Bedroom LED";
-            this.checkBox4.UseVisualStyleBackColor = true;
-            this.checkBox4.CheckedChanged += new System.EventHandler(this.checkBox4_CheckedChanged);
+            this.cbSlaapkamer.AutoSize = true;
+            this.cbSlaapkamer.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbSlaapkamer.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.cbSlaapkamer.Location = new System.Drawing.Point(40, 181);
+            this.cbSlaapkamer.Margin = new System.Windows.Forms.Padding(40, 10, 80, 10);
+            this.cbSlaapkamer.Name = "cbSlaapkamer";
+            this.cbSlaapkamer.Size = new System.Drawing.Size(240, 37);
+            this.cbSlaapkamer.TabIndex = 5;
+            this.cbSlaapkamer.Text = "Bedroom LED";
+            this.cbSlaapkamer.UseVisualStyleBackColor = true;
+            this.cbSlaapkamer.CheckedChanged += new System.EventHandler(this.checkBox4_CheckedChanged);
             // 
-            // checkBox5
+            // cbBadkamer
             // 
-            this.checkBox5.AutoSize = true;
-            this.checkBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
-            this.checkBox5.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.checkBox5.Location = new System.Drawing.Point(40, 262);
-            this.checkBox5.Margin = new System.Windows.Forms.Padding(40, 10, 80, 10);
-            this.checkBox5.Name = "checkBox5";
-            this.checkBox5.Size = new System.Drawing.Size(276, 43);
-            this.checkBox5.TabIndex = 6;
-            this.checkBox5.Text = "Bathroom LED";
-            this.checkBox5.UseVisualStyleBackColor = true;
-            this.checkBox5.CheckedChanged += new System.EventHandler(this.checkBox5_CheckedChanged);
+            this.cbBadkamer.AutoSize = true;
+            this.cbBadkamer.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbBadkamer.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.cbBadkamer.Location = new System.Drawing.Point(40, 238);
+            this.cbBadkamer.Margin = new System.Windows.Forms.Padding(40, 10, 80, 10);
+            this.cbBadkamer.Name = "cbBadkamer";
+            this.cbBadkamer.Size = new System.Drawing.Size(249, 37);
+            this.cbBadkamer.TabIndex = 6;
+            this.cbBadkamer.Text = "Bathroom LED";
+            this.cbBadkamer.UseVisualStyleBackColor = true;
+            this.cbBadkamer.CheckedChanged += new System.EventHandler(this.checkBox5_CheckedChanged);
             // 
             // pictureBox3
             // 
@@ -768,7 +791,7 @@
             this.tableLayoutPanel14.Controls.Add(this.panel2, 1, 0);
             this.tableLayoutPanel14.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel14.Location = new System.Drawing.Point(6, 6);
-            this.tableLayoutPanel14.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.tableLayoutPanel14.Margin = new System.Windows.Forms.Padding(6);
             this.tableLayoutPanel14.Name = "tableLayoutPanel14";
             this.tableLayoutPanel14.RowCount = 1;
             this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -780,7 +803,7 @@
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(1225, 6);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(6);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(483, 188);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -816,7 +839,7 @@
             this.panel2.Controls.Add(this.label2);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(211, 6);
-            this.panel2.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.panel2.Margin = new System.Windows.Forms.Padding(6);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1002, 188);
             this.panel2.TabIndex = 2;
@@ -824,7 +847,7 @@
             // btnInstellingen
             // 
             this.btnInstellingen.Location = new System.Drawing.Point(38, 98);
-            this.btnInstellingen.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnInstellingen.Margin = new System.Windows.Forms.Padding(6);
             this.btnInstellingen.Name = "btnInstellingen";
             this.btnInstellingen.Size = new System.Drawing.Size(150, 44);
             this.btnInstellingen.TabIndex = 1;
@@ -849,12 +872,122 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(32, 38);
+            this.label2.Location = new System.Drawing.Point(47, 48);
             this.label2.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(70, 25);
             this.label2.TabIndex = 0;
             this.label2.Text = "label2";
+            // 
+            // lblGraden
+            // 
+            this.lblGraden.Location = new System.Drawing.Point(3, 0);
+            this.lblGraden.Name = "lblGraden";
+            this.lblGraden.Size = new System.Drawing.Size(100, 23);
+            this.lblGraden.TabIndex = 0;
+            this.lblGraden.Text = "Graden";
+            this.lblGraden.TextChanged += new System.EventHandler(this.label4_TextChanged);
+            // 
+            // tableLayoutPanel17
+            // 
+            this.tableLayoutPanel17.ColumnCount = 2;
+            this.tableLayoutPanel17.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 13F));
+            this.tableLayoutPanel17.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 87F));
+            this.tableLayoutPanel17.Controls.Add(this.button7, 0, 2);
+            this.tableLayoutPanel17.Controls.Add(this.button8, 0, 1);
+            this.tableLayoutPanel17.Controls.Add(this.button9, 0, 0);
+            this.tableLayoutPanel17.Controls.Add(this.label5, 1, 1);
+            this.tableLayoutPanel17.Location = new System.Drawing.Point(6, 6);
+            this.tableLayoutPanel17.Margin = new System.Windows.Forms.Padding(6);
+            this.tableLayoutPanel17.Name = "tableLayoutPanel17";
+            this.tableLayoutPanel17.RowCount = 3;
+            this.tableLayoutPanel17.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 48.88889F));
+            this.tableLayoutPanel17.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 51.11111F));
+            this.tableLayoutPanel17.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 42F));
+            this.tableLayoutPanel17.Size = new System.Drawing.Size(400, 131);
+            this.tableLayoutPanel17.TabIndex = 6;
+            // 
+            // button7
+            // 
+            this.button7.Location = new System.Drawing.Point(0, 88);
+            this.button7.Margin = new System.Windows.Forms.Padding(0);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(40, 38);
+            this.button7.TabIndex = 4;
+            this.button7.Text = ".";
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click_1);
+            // 
+            // button8
+            // 
+            this.button8.Location = new System.Drawing.Point(0, 43);
+            this.button8.Margin = new System.Windows.Forms.Padding(0);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(40, 38);
+            this.button8.TabIndex = 2;
+            this.button8.Text = "x";
+            this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click_1);
+            // 
+            // button9
+            // 
+            this.button9.Location = new System.Drawing.Point(0, 0);
+            this.button9.Margin = new System.Windows.Forms.Padding(0);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(40, 38);
+            this.button9.TabIndex = 0;
+            this.button9.Text = "^";
+            this.button9.UseVisualStyleBackColor = true;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
+            this.label5.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label5.Location = new System.Drawing.Point(58, 43);
+            this.label5.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label5.Name = "label5";
+            this.label5.Padding = new System.Windows.Forms.Padding(0, 0, 0, 6);
+            this.label5.Size = new System.Drawing.Size(201, 45);
+            this.label5.TabIndex = 5;
+            this.label5.Text = "Garagedoor";
+            // 
+            // lblLuchtvochtigheid
+            // 
+            this.lblLuchtvochtigheid.Location = new System.Drawing.Point(109, 0);
+            this.lblLuchtvochtigheid.Name = "lblLuchtvochtigheid";
+            this.lblLuchtvochtigheid.Size = new System.Drawing.Size(202, 23);
+            this.lblLuchtvochtigheid.TabIndex = 1;
+            this.lblLuchtvochtigheid.Text = "Luchtvochtigheid";
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.checkBox1.Location = new System.Drawing.Point(40, 88);
+            this.checkBox1.Margin = new System.Windows.Forms.Padding(40, 10, 80, 10);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(276, 37);
+            this.checkBox1.TabIndex = 7;
+            this.checkBox1.Text = "Livingroom RGB";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged_1);
+            // 
+            // checkBox2
+            // 
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.checkBox2.Location = new System.Drawing.Point(40, 145);
+            this.checkBox2.Margin = new System.Windows.Forms.Padding(40, 10, 80, 10);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(247, 37);
+            this.checkBox2.TabIndex = 8;
+            this.checkBox2.Text = "Bedroom RGB";
+            this.checkBox2.UseVisualStyleBackColor = true;
+            this.checkBox2.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged_1);
             // 
             // Form1
             // 
@@ -863,10 +996,9 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(40)))), ((int)(((byte)(49)))));
             this.ClientSize = new System.Drawing.Size(1726, 1062);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "Form1";
             this.Text = "Form1";
-            this.Resize += new System.EventHandler(this.Form1_Resize);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel6.ResumeLayout(false);
@@ -890,9 +1022,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel9.ResumeLayout(false);
+            this.flowLayoutPanel11.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel8.ResumeLayout(false);
+            this.flowLayoutPanel9.ResumeLayout(false);
+            this.flowLayoutPanel9.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.tableLayoutPanel7.ResumeLayout(false);
             this.flowLayoutPanel3.ResumeLayout(false);
@@ -904,6 +1039,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.tableLayoutPanel17.ResumeLayout(false);
+            this.tableLayoutPanel17.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -941,11 +1078,11 @@
         private System.Windows.Forms.PictureBox pictureBox7;
         private System.Windows.Forms.PictureBox pictureBox8;
         private System.Windows.Forms.PictureBox pictureBox9;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.CheckBox checkBox3;
-        private System.Windows.Forms.CheckBox checkBox4;
-        private System.Windows.Forms.CheckBox checkBox5;
+        private System.Windows.Forms.CheckBox cbKeuken;
+        private System.Windows.Forms.CheckBox cbGarage;
+        private System.Windows.Forms.CheckBox cbWoonkamer;
+        private System.Windows.Forms.CheckBox cbSlaapkamer;
+        private System.Windows.Forms.CheckBox cbBadkamer;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel15;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button3;
@@ -962,9 +1099,18 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.CheckBox checkBox7;
-        private System.Windows.Forms.CheckBox checkBox8;
         private System.Windows.Forms.Button btnInstellingen;
+        private System.Windows.Forms.Button btnRGB2;
+        private System.Windows.Forms.Button buttonRGB1;
+        private System.Windows.Forms.Label lblGraden;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel17;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lblLuchtvochtigheid;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox checkBox2;
     }
 }
 
