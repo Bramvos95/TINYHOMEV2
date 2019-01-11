@@ -20,9 +20,9 @@ namespace TINYHOMEV2
         public string Hex { get => hex; set => hex = value; }
         public string Sender { get => sender; set => sender = value; }
 
-        Form1 parent;
+        Tinyhome parent;
 
-        public RGBControl(Form1 parent, string sender)
+        public RGBControl(Tinyhome parent, string sender)
         {
             InitializeComponent();
             this.parent = parent;

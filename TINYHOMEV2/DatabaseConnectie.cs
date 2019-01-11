@@ -79,7 +79,6 @@ namespace TINYHOMEV2
         public Gebruiker inloggen(string gebruikersnaam, string wachtwoord)
         {
             string versleuteldWachtwoord = EncodePasswordToBase64(wachtwoord);
-            Console.WriteLine(versleuteldWachtwoord);
             if (this.OpenConnectie())
             {
                 string query = "SELECT * FROM Gebruiker WHERE Gebruikersnaam=@naam AND Wachtwoord=@wachtwoord";

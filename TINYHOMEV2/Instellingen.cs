@@ -13,9 +13,9 @@ namespace TINYHOMEV2
     public partial class Instellingen : Form
     {
         DatabaseConnectie db;
-        Form1 parent;
+        Tinyhome parent;
 
-        public Instellingen(Form1 parent)
+        public Instellingen(Tinyhome parent)
         {
             InitializeComponent();
             db = new DatabaseConnectie();
@@ -48,6 +48,11 @@ namespace TINYHOMEV2
         private void listboxVullen()
         {
             listBox1.DataSource = db.arduinos();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Hide();
         }
     }
 }

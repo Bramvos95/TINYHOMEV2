@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace TINYHOMEV2
 {
-    public partial class Form1 : Form
+    public partial class Tinyhome : Form
     {
         private SerialMessenger sm;
         private MessageBuilder ms;
@@ -36,7 +36,7 @@ namespace TINYHOMEV2
         public decimal Temperatuur { get => temperatuur; set => temperatuur = value; }
         public decimal Luchtvochtigheid { get => luchtvochtigheid; set => luchtvochtigheid = value; }
 
-        public Form1()
+        public Tinyhome()
         {
             InitializeComponent();
             readMessageTimer = new Timer();
@@ -46,8 +46,10 @@ namespace TINYHOMEV2
             readMessageTimer.Tick += new EventHandler(ReadMessageTimer_Tick);
             Connect(Db.Arduinolaatste());
             FillCheckBox();
+            pbDag.Image = Image.FromFile("\\\\Mac\\Home\\Downloads\\dagweergave.png");
+            label4.Text = "24.000 KW";
         }
-      
+
         public void Connect(Arduino arduino)
         {
 
@@ -278,6 +280,37 @@ namespace TINYHOMEV2
         private void label4_TextChanged(object sender, EventArgs e)
         {
             db.Thermostaat(Luchtvochtigheid, Temperatuur);
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            Camera camera = new Camera();
+            camera.Show();
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int value = (int)(comboBox1.SelectedIndex);
+            if (value == 0)
+            {
+                pbDag.Image = Image.FromFile("\\\\Mac\\Home\\Downloads\\dagweergave.png");
+                label4.Text = "24.000 KW";
+            }
+            else if (value == 1)
+            {
+                pbDag.Image = Image.FromFile("\\\\Mac\\Home\\Downloads\\cropped-stroom-concept-1-1.jpg");
+                label4.Text = "94.000 KW";
+            }
+            else if (value == 2)
+            {
+                pbDag.Image = Image.FromFile("\\\\Mac\\Home\\Downloads\\sticker-pas-op-_stroom.png");
+                label4.Text = "182.073 KW";
+            }
+            else if (value == 3)
+            {
+                pbDag.Image = Image.FromFile("\\\\Mac\\Home\\Downloads\\Grafiek-zonnepanelen.jpg");
+                label4.Text = "939.811 KW";
+            }
         }
     }
 }

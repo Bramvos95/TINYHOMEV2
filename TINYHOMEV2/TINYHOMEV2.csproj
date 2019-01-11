@@ -82,12 +82,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Arduino.cs" />
-    <Compile Include="DatabaseConnectie.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="Camera.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Camera.Designer.cs">
+      <DependentUpon>Camera.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseConnectie.cs" />
+    <Compile Include="Tinyhome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tinyhome.Designer.cs">
+      <DependentUpon>Tinyhome.cs</DependentUpon>
     </Compile>
     <Compile Include="Gebruiker.cs" />
     <Compile Include="Instellingen.cs">
@@ -113,8 +119,11 @@
       <DependentUpon>RGBControl.cs</DependentUpon>
     </Compile>
     <Compile Include="SerialMessenger.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="Camera.resx">
+      <DependentUpon>Camera.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tinyhome.resx">
+      <DependentUpon>Tinyhome.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Instellingen.resx">
       <DependentUpon>Instellingen.cs</DependentUpon>
@@ -159,6 +168,25 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="AxWMPLib">
+      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>aximp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="WMPLib">
+      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

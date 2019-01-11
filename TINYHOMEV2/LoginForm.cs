@@ -38,7 +38,7 @@ namespace TINYHOMEV2
             Gebruiker gebruiker = dbVerbinding.inloggen(gebruikersnaam, wachtwoord);
             if (gebruiker != null)
             {
-                Form1 mainUI = new Form1();
+                Tinyhome mainUI = new Tinyhome();
                 this.Hide();
                 mainUI.Show();
             }
