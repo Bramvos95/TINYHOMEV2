@@ -15,8 +15,15 @@ namespace TINYHOMEV2
         public Camera()
         {
             InitializeComponent();
-            axWindowsMediaPlayer1.URL = "\\\\Mac\\Home\\Desktop\\video.mp4";
-            axWindowsMediaPlayer1.settings.autoStart = true;
+            try
+            {
+                axWindowsMediaPlayer1.URL = "\\\\Mac\\Home\\Desktop\\video.mp4";
+                axWindowsMediaPlayer1.settings.autoStart = true;
+            }
+            catch(Exception exc)
+            {
+                Console.WriteLine()
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)

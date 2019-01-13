@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.remoteControlGroupBox = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.blueTextBox = new System.Windows.Forms.TextBox();
             this.greenTextBox = new System.Windows.Forms.TextBox();
             this.redTextBox = new System.Windows.Forms.TextBox();
@@ -39,7 +40,6 @@
             this.blueSliderLabel = new System.Windows.Forms.Label();
             this.redSliderLabel = new System.Windows.Forms.Label();
             this.greenSliderLabel = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             this.remoteControlGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.greenSlider)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.redSlider)).BeginInit();
@@ -67,6 +67,16 @@
             this.remoteControlGroupBox.TabIndex = 5;
             this.remoteControlGroupBox.TabStop = false;
             this.remoteControlGroupBox.Text = "Control the color from the PC";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(368, 583);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(119, 57);
+            this.button1.TabIndex = 5;
+            this.button1.Text = "Close";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // blueTextBox
             // 
@@ -173,22 +183,14 @@
             this.greenSliderLabel.TabIndex = 1;
             this.greenSliderLabel.Text = "Green";
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(368, 583);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(119, 57);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Close";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // RGBControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(40)))), ((int)(((byte)(49)))));
             this.ClientSize = new System.Drawing.Size(776, 780);
             this.Controls.Add(this.remoteControlGroupBox);
+            this.ForeColor = System.Drawing.Color.Snow;
             this.Name = "RGBControl";
             this.Text = "RGBControl";
             this.remoteControlGroupBox.ResumeLayout(false);

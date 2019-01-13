@@ -28,14 +28,23 @@ namespace TINYHOMEV2
             if(txtBaudrate.Text != "" && txtCommandBegin.Text != "" && txtCommandEnd.Text != "" && txtComPoort.Text != "")
             {
                 Arduino a = new Arduino();
-                a.Baudrate = Convert.ToInt32(txtBaudrate.Text);
-                a.Commandbegin = txtCommandBegin.Text;
-                a.Commandend = txtCommandEnd.Text;
-                a.Poort = txtComPoort.Text;
-                a.Naam = txtVerbindingsNaam.Text;
-                db.nieuweArduino(a);
-                
-                parent.Connect(a);
+                try
+                {
+                    a.Baudrate = Convert.ToInt32(txtBaudrate.Text);
+                    a.Commandbegin = txtCommandBegin.Text;
+                    a.Commandend = txtCommandEnd.Text;
+                    a.Poort = txtComPoort.Text;
+                    a.Naam = txtVerbindingsNaam.Text;
+                    db.nieuweArduino(a);
+                }
+                catch (Exception exc)
+                {
+                    Console.WriteLine(exc);
+                }
+                finally
+                {
+                    parent.Connect(a);
+                }
             }
             else if (listBox1.SelectedIndex != -1)
             {
@@ -53,6 +62,20 @@ namespace TINYHOMEV2
         private void button3_Click(object sender, EventArgs e)
         {
             this.Hide();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Gebruiker gb = new Gebruiker();
+                gb.Naam = textBox1.Text;
+                db.GebruikerToevoegen(gb, textBox2.Text);
+            }
+            catch(Exception exc)
+            {
+                Console.WriteLine(exc);
+            }
         }
     }
 }

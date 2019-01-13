@@ -79,31 +79,38 @@ namespace TINYHOMEV2
         public Gebruiker inloggen(string gebruikersnaam, string wachtwoord)
         {
             string versleuteldWachtwoord = EncodePasswordToBase64(wachtwoord);
-            if (this.OpenConnectie())
+            try
             {
-                string query = "SELECT * FROM Gebruiker WHERE Gebruikersnaam=@naam AND Wachtwoord=@wachtwoord";
-
-                MySqlCommand cmd = new MySqlCommand(query, connectie);
-                cmd.Parameters.AddWithValue("@naam", gebruikersnaam);
-                cmd.Parameters.AddWithValue("@wachtwoord", versleuteldWachtwoord);
-
-                MySqlDataReader dataReader = cmd.ExecuteReader();
-
-                int rowCount = 0;
-                Gebruiker gebruiker = new Gebruiker();
-
-                while (dataReader.Read())
+                if (this.OpenConnectie())
                 {
-                    gebruiker = new Gebruiker
+                    string query = "SELECT * FROM Gebruiker WHERE Gebruikersnaam=@naam AND Wachtwoord=@wachtwoord";
+
+                    MySqlCommand cmd = new MySqlCommand(query, connectie);
+                    cmd.Parameters.AddWithValue("@naam", gebruikersnaam);
+                    cmd.Parameters.AddWithValue("@wachtwoord", versleuteldWachtwoord);
+
+                    MySqlDataReader dataReader = cmd.ExecuteReader();
+
+                    int rowCount = 0;
+                    Gebruiker gebruiker = new Gebruiker();
+
+                    while (dataReader.Read())
                     {
-                        Id = (int) dataReader["idGebruiker"],
-                        Naam = (string) dataReader["Gebruikersnaam"]
-                    };
-                    rowCount++;
+                        gebruiker = new Gebruiker
+                        {
+                            Id = (int)dataReader["idGebruiker"],
+                            Naam = (string)dataReader["Gebruikersnaam"]
+                        };
+                        rowCount++;
+                    }
+                    this.SluitConnectie();
+                    if (rowCount == 1 && gebruiker.Naam != "") return gebruiker;
+                    else return null;
                 }
-                this.SluitConnectie();
-                if (rowCount == 1 && gebruiker.Naam != "") return gebruiker;
-                else return null;
+            }
+            catch(Exception exc)
+            {
+                Console.WriteLine(exc);
             }
             return null;
         }
@@ -117,23 +124,30 @@ namespace TINYHOMEV2
 
         public void nieuweArduino(Arduino arduino)
         {
-            if (this.OpenConnectie())
+            try
             {
-                string query = "INSERT INTO arduino (Verbinding, Poort, BaudRate, CommandBegin," +
-               "CommandEnd)" +
-               "VALUES(@VerbindingNaam, @Poort, @BaudRate, @CommandBegin," +
-               "@CommandEnd)";
+                if (this.OpenConnectie())
+                {
+                    string query = "INSERT INTO arduino (Verbinding, Poort, BaudRate, CommandBegin," +
+                   "CommandEnd)" +
+                   "VALUES(@VerbindingNaam, @Poort, @BaudRate, @CommandBegin," +
+                   "@CommandEnd)";
 
-                MySqlCommand cmd = new MySqlCommand(query, connectie);
-                cmd.Parameters.AddWithValue("@VerbindingNaam", arduino.Naam);
-                cmd.Parameters.AddWithValue("@Poort", arduino.Poort);
-                cmd.Parameters.AddWithValue("@BaudRate", arduino.Baudrate);
-                cmd.Parameters.AddWithValue("@CommandBegin", arduino.Commandbegin);
-                cmd.Parameters.AddWithValue("@CommandEnd", arduino.Commandend);
+                    MySqlCommand cmd = new MySqlCommand(query, connectie);
+                    cmd.Parameters.AddWithValue("@VerbindingNaam", arduino.Naam);
+                    cmd.Parameters.AddWithValue("@Poort", arduino.Poort);
+                    cmd.Parameters.AddWithValue("@BaudRate", arduino.Baudrate);
+                    cmd.Parameters.AddWithValue("@CommandBegin", arduino.Commandbegin);
+                    cmd.Parameters.AddWithValue("@CommandEnd", arduino.Commandend);
 
-                cmd.ExecuteNonQuery();
-                this.SluitConnectie();
-                
+                    cmd.ExecuteNonQuery();
+                    this.SluitConnectie();
+
+                }
+            }
+            catch(Exception exc)
+            {
+                Console.WriteLine(exc);
             }
         } 
 
@@ -142,25 +156,32 @@ namespace TINYHOMEV2
             List<Arduino> arduino = new List<Arduino>();
 
             string query = "SELECT * FROM arduino";
-            if (this.OpenConnectie())
+            try
             {
-                MySqlCommand cmd = new MySqlCommand(query, connectie);
-                MySqlDataReader datareader = cmd.ExecuteReader();
-
-                while (datareader.Read())
+                if (this.OpenConnectie())
                 {
-                    Arduino arduinos = new Arduino
+                    MySqlCommand cmd = new MySqlCommand(query, connectie);
+                    MySqlDataReader datareader = cmd.ExecuteReader();
+
+                    while (datareader.Read())
                     {
-                        Id = (int)(datareader["idArduino"]),
-                        Baudrate = (int)(datareader["BaudRate"]),
-                        Commandbegin  = ConverteerString(datareader["CommandBegin"]),
-                        Commandend = ConverteerString(datareader["CommandEnd"]),
-                        Naam = ConverteerString(datareader["Verbinding"]),
-                        Poort = ConverteerString(datareader["Poort"])
-                    };
-                    arduino.Add(arduinos);
+                        Arduino arduinos = new Arduino
+                        {
+                            Id = (int)(datareader["idArduino"]),
+                            Baudrate = (int)(datareader["BaudRate"]),
+                            Commandbegin = ConverteerString(datareader["CommandBegin"]),
+                            Commandend = ConverteerString(datareader["CommandEnd"]),
+                            Naam = ConverteerString(datareader["Verbinding"]),
+                            Poort = ConverteerString(datareader["Poort"])
+                        };
+                        arduino.Add(arduinos);
+                    }
+                    this.SluitConnectie();
                 }
-                this.SluitConnectie();
+            }
+            catch (Exception exc)
+            {
+                Console.WriteLine(exc);
             }
             return arduino;
         }
@@ -169,25 +190,32 @@ namespace TINYHOMEV2
             Arduino arduino = new Arduino();
 
             string query = "SELECT * from arduino ORDER BY idArduino DESC LIMIT 1;";
-            if (this.OpenConnectie())
+            try
             {
-                MySqlCommand cmd = new MySqlCommand(query, connectie);
-                MySqlDataReader datareader = cmd.ExecuteReader();
-
-                while (datareader.Read())
+                if (this.OpenConnectie())
                 {
-                    Arduino arduinos = new Arduino
+                    MySqlCommand cmd = new MySqlCommand(query, connectie);
+                    MySqlDataReader datareader = cmd.ExecuteReader();
+
+                    while (datareader.Read())
                     {
-                        Id = (int)(datareader["idArduino"]),
-                        Baudrate = (int)(datareader["BaudRate"]),
-                        Commandbegin = ConverteerString(datareader["CommandBegin"]),
-                        Commandend = ConverteerString(datareader["CommandEnd"]),
-                        Naam = ConverteerString(datareader["Verbinding"]),
-                        Poort = ConverteerString(datareader["Poort"])
-                    };
-                    arduino = arduinos;
+                        Arduino arduinos = new Arduino
+                        {
+                            Id = (int)(datareader["idArduino"]),
+                            Baudrate = (int)(datareader["BaudRate"]),
+                            Commandbegin = ConverteerString(datareader["CommandBegin"]),
+                            Commandend = ConverteerString(datareader["CommandEnd"]),
+                            Naam = ConverteerString(datareader["Verbinding"]),
+                            Poort = ConverteerString(datareader["Poort"])
+                        };
+                        arduino = arduinos;
+                    }
+                    this.SluitConnectie();
                 }
-                this.SluitConnectie();
+            }
+            catch (Exception exc)
+            {
+                Console.WriteLine(exc);
             }
             return arduino;
         }
@@ -200,48 +228,66 @@ namespace TINYHOMEV2
         public void Updatelampen(lamp lamp)
         {
             string query = "UPDATE lamp SET Staat = @staat WHERE Naam = @naam";
-
-            if (this.OpenConnectie())
+            try
             {
-                MySqlCommand cmd = new MySqlCommand(query, connectie);
+                if (this.OpenConnectie())
+                {
+                    MySqlCommand cmd = new MySqlCommand(query, connectie);
 
-                cmd.Parameters.AddWithValue("@Staat", lamp.Status);
-                cmd.Parameters.AddWithValue("@naam", lamp.Naam);
+                    cmd.Parameters.AddWithValue("@Staat", lamp.Status);
+                    cmd.Parameters.AddWithValue("@naam", lamp.Naam);
 
-                cmd.ExecuteNonQuery();
-                this.SluitConnectie();
+                    cmd.ExecuteNonQuery();
+                    this.SluitConnectie();
+                }
+            }
+            catch (Exception exc)
+            {
+                Console.WriteLine(exc);
             }
         }
 
         public void UpdateRGB(string hex, string naam)
         {
             string query = "UPDATE lamp SET HEXWaarde = @hex WHERE Naam = @naam";
-
-            if (this.OpenConnectie())
+            try
             {
-                MySqlCommand cmd = new MySqlCommand(query, connectie);
+                if (this.OpenConnectie())
+                {
+                    MySqlCommand cmd = new MySqlCommand(query, connectie);
 
-                cmd.Parameters.AddWithValue("@hex", hex );
-                cmd.Parameters.AddWithValue("@naam", naam);
+                    cmd.Parameters.AddWithValue("@hex", hex);
+                    cmd.Parameters.AddWithValue("@naam", naam);
 
-                cmd.ExecuteNonQuery();
-                this.SluitConnectie();
+                    cmd.ExecuteNonQuery();
+                    this.SluitConnectie();
+                }
+            }
+            catch (Exception exc)
+            {
+                Console.WriteLine(exc);
             }
         }
 
         public void Thermostaat(decimal luchtvochtigheid, decimal temperatuur)
         {
             string query = "UPDATE thermostaat SET Luchtvochtigheid = @Luchtvochtigheid, Temperatuur = @Temperatuur";
-
-            if (this.OpenConnectie())
+            try
             {
-                MySqlCommand cmd = new MySqlCommand(query, connectie);
+                if (this.OpenConnectie())
+                {
+                    MySqlCommand cmd = new MySqlCommand(query, connectie);
 
-                cmd.Parameters.AddWithValue("@Luchtvochtigheid", luchtvochtigheid);
-                cmd.Parameters.AddWithValue("@Temperatuur", temperatuur);
+                    cmd.Parameters.AddWithValue("@Luchtvochtigheid", luchtvochtigheid);
+                    cmd.Parameters.AddWithValue("@Temperatuur", temperatuur);
 
-                cmd.ExecuteNonQuery();
-                this.SluitConnectie();
+                    cmd.ExecuteNonQuery();
+                    this.SluitConnectie();
+                }
+            }
+            catch (Exception exc)
+            {
+                Console.WriteLine(exc);
             }
         }
 
@@ -249,17 +295,24 @@ namespace TINYHOMEV2
         {
             string query = "SELECT Staat from lamp WHERE Naam = @naam";
             byte staat = 0;
-            if (this.OpenConnectie())
+            try
             {
-                MySqlCommand cmd = new MySqlCommand(query, connectie);
-                cmd.Parameters.AddWithValue("@naam", naam);
-                MySqlDataReader datareader = cmd.ExecuteReader();
-
-                while (datareader.Read())
+                if (this.OpenConnectie())
                 {
-                    staat = (byte)(datareader["staat"]);
+                    MySqlCommand cmd = new MySqlCommand(query, connectie);
+                    cmd.Parameters.AddWithValue("@naam", naam);
+                    MySqlDataReader datareader = cmd.ExecuteReader();
+
+                    while (datareader.Read())
+                    {
+                        staat = (byte)(datareader["staat"]);
+                    }
+                    this.SluitConnectie();
                 }
-                this.SluitConnectie();
+            }
+            catch (Exception exc)
+            {
+                Console.WriteLine(exc);
             }
 
             if (staat == 1)
@@ -267,6 +320,29 @@ namespace TINYHOMEV2
                 return true;
             }
             else { return false; }
+        }
+
+        public void GebruikerToevoegen(Gebruiker gb, string wachtwoord)
+        {
+            string versleuteldWachtwoord = EncodePasswordToBase64(wachtwoord);
+            string query = "INSERT INTO gebruiker (Gebruikersnaam, Wachtwoord) VALUES (@gebruikersnaam, @wachtwoord)";
+            try
+            {
+                if (this.OpenConnectie())
+                {
+                    MySqlCommand cmd = new MySqlCommand(query, connectie);
+
+                    cmd.Parameters.AddWithValue("@gebruikersnaam", gb.Naam);
+                    cmd.Parameters.AddWithValue("@wachtwoord", versleuteldWachtwoord);
+
+                    cmd.ExecuteNonQuery();
+                    this.SluitConnectie();
+                }
+            }
+            catch (Exception exc)
+            {
+                Console.WriteLine(exc);
+            }
         }
     }
 }

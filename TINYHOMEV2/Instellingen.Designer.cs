@@ -44,9 +44,11 @@
             this.txtVerbindingsNaam = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -126,7 +128,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(432, 346);
+            this.button1.Location = new System.Drawing.Point(432, 336);
             this.button1.Margin = new System.Windows.Forms.Padding(6);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(212, 48);
@@ -208,29 +210,35 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.label9);
+            this.groupBox2.Controls.Add(this.label8);
             this.groupBox2.Controls.Add(this.button2);
             this.groupBox2.Controls.Add(this.textBox2);
             this.groupBox2.Controls.Add(this.textBox1);
             this.groupBox2.Location = new System.Drawing.Point(24, 22);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(329, 354);
+            this.groupBox2.Size = new System.Drawing.Size(427, 354);
             this.groupBox2.TabIndex = 14;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "User settings";
             // 
-            // textBox2
+            // label9
             // 
-            this.textBox2.Location = new System.Drawing.Point(97, 114);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(162, 31);
-            this.textBox2.TabIndex = 1;
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(52, 154);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(106, 25);
+            this.label9.TabIndex = 15;
+            this.label9.Text = "Password";
             // 
-            // textBox1
+            // label8
             // 
-            this.textBox1.Location = new System.Drawing.Point(97, 64);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(162, 31);
-            this.textBox1.TabIndex = 0;
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(52, 101);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(110, 25);
+            this.label8.TabIndex = 14;
+            this.label8.Text = "Username";
             // 
             // button2
             // 
@@ -241,6 +249,21 @@
             this.button2.TabIndex = 13;
             this.button2.Text = "Add user";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(168, 148);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(162, 31);
+            this.textBox2.TabIndex = 1;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(168, 98);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(162, 31);
+            this.textBox1.TabIndex = 0;
             // 
             // button3
             // 
@@ -257,10 +280,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(40)))), ((int)(((byte)(49)))));
             this.ClientSize = new System.Drawing.Size(1282, 883);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "Instellingen";
             this.Text = "Instellingen";
@@ -294,5 +319,7 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label8;
     }
 }

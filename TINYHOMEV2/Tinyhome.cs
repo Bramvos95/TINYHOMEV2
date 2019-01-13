@@ -236,12 +236,7 @@ namespace TINYHOMEV2
         {
             sm.SendMessage("SET_BEDROOMSHUTTER:TRUE");
         }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            sm.SendMessage("SET_BEDROOMSHUTTER:STOP");
-        }
-
+        
         private void button5_Click(object sender, EventArgs e)
         {
             sm.SendMessage("SET_BEDROOMSHUTTER:FALSE");
@@ -251,12 +246,7 @@ namespace TINYHOMEV2
         {
             sm.SendMessage("SET_BATHROOMSHUTTER:TRUE");
         }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            sm.SendMessage("SET_BATHROOMSHUTTER:STOP");
-        }
-
+        
         private void button2_Click(object sender, EventArgs e)
         {
             sm.SendMessage("SET_BATHROOMSHUTTER:FALSE");
@@ -266,12 +256,7 @@ namespace TINYHOMEV2
         {
             sm.SendMessage("SET_GARAGEDOOR:TRUE");
         }
-
-        private void button8_Click_1(object sender, EventArgs e)
-        {
-            sm.SendMessage("SET_GARAGEDOOR:STOP");
-        }
-
+        
         private void button7_Click_1(object sender, EventArgs e)
         {
             sm.SendMessage("SET_GARAGEDOOR:FALSE");
