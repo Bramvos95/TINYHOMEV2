@@ -53,8 +53,15 @@ namespace TINYHOMEV2
             readMessageTimer.Start();
             Connect(Db.Arduinolaatste());
             FillCheckBox();
-            pbDag.Image = Image.FromFile("\\\\Mac\\Home\\Downloads\\dagweergave.png");
-            label4.Text = "24.000 KW";
+            try
+            {
+                pbDag.Image = Image.FromFile("\\\\Mac\\Home\\Downloads\\dagweergave.png");
+                label4.Text = "24.000 KW";
+            }
+            catch(Exception exc)
+            {
+                Console.WriteLine(exc);
+            }
         }
 
         public void Connect(Arduino arduino)
@@ -273,25 +280,32 @@ namespace TINYHOMEV2
             int value = (int)(comboBox1.SelectedIndex); // er wordt opgeslagen welk item er in de combobox is geselecteerd
 
             // bij ieder item in de combobox horen andere gegevens
-            if (value == 0)
+            try
             {
-                pbDag.Image = Image.FromFile("\\\\Mac\\Home\\Downloads\\dagweergave.png");
-                label4.Text = "24.000 KW";
+                if (value == 0)
+                {
+                    pbDag.Image = Image.FromFile("\\\\Mac\\Home\\Downloads\\dagweergave.png");
+                    label4.Text = "24.000 KW";
+                }
+                else if (value == 1)
+                {
+                    pbDag.Image = Image.FromFile("\\\\Mac\\Home\\Downloads\\cropped-stroom-concept-1-1.jpg");
+                    label4.Text = "94.000 KW";
+                }
+                else if (value == 2)
+                {
+                    pbDag.Image = Image.FromFile("\\\\Mac\\Home\\Downloads\\sticker-pas-op-_stroom.png");
+                    label4.Text = "182.073 KW";
+                }
+                else if (value == 3)
+                {
+                    pbDag.Image = Image.FromFile("\\\\Mac\\Home\\Downloads\\Grafiek-zonnepanelen.jpg");
+                    label4.Text = "939.811 KW";
+                }
             }
-            else if (value == 1)
+            catch(Exception exc)
             {
-                pbDag.Image = Image.FromFile("\\\\Mac\\Home\\Downloads\\cropped-stroom-concept-1-1.jpg");
-                label4.Text = "94.000 KW";
-            }
-            else if (value == 2)
-            {
-                pbDag.Image = Image.FromFile("\\\\Mac\\Home\\Downloads\\sticker-pas-op-_stroom.png");
-                label4.Text = "182.073 KW";
-            }
-            else if (value == 3)
-            {
-                pbDag.Image = Image.FromFile("\\\\Mac\\Home\\Downloads\\Grafiek-zonnepanelen.jpg");
-                label4.Text = "939.811 KW";
+                Console.WriteLine(exc);
             }
         }
     }
