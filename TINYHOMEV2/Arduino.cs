@@ -8,6 +8,7 @@ namespace TINYHOMEV2
 {
     public class Arduino
     {
+        //variabelen 
         private string poort;
         private int baudrate;
         private string commandbegin;
@@ -22,7 +23,7 @@ namespace TINYHOMEV2
         public string Naam { get => naam; set => naam = value; }
         public int Id { get => id; set => id = value; }
 
-        public override string ToString()
+        public override string ToString() //wanneer de gegevens uit deze klasse worden opgevraagd wordt dit teruggestuurd:
         {
             return Id + " - " + Naam + " - " + Poort + " - " + Commandbegin + " - " + Commandend;
         }

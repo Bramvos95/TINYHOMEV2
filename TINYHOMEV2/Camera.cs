@@ -17,10 +17,13 @@ namespace TINYHOMEV2
             InitializeComponent();
             try
             {
-                axWindowsMediaPlayer1.URL = "\\\\Mac\\Home\\Desktop\\video.mp4";
-                axWindowsMediaPlayer1.settings.autoStart = true;
+                axWindowsMediaPlayer1.settings.volume = 0; //geluid van de video wordt op 0 gezet
+                axWindowsMediaPlayer1.uiMode = "none"; // de bedieningsknoppen worden verborgen
+                axWindowsMediaPlayer1.URL = "\\\\Mac\\Home\\Desktop\\video.mp4"; // dit is de video die afgespeeld moet worden
+                axWindowsMediaPlayer1.settings.autoStart = true; // video moet direct starten
+                
             }
-            catch(Exception exc)
+            catch(Exception exc) // foutmeldingen worden hier opgevangen en in het output venster geschreven
             {
                 Console.WriteLine(exc);
             }
@@ -28,7 +31,8 @@ namespace TINYHOMEV2
 
         private void button1_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            axWindowsMediaPlayer1.Ctlcontrols.stop(); // stop de video
+            this.Hide(); // form wordt verborgen
         }
     }
 }

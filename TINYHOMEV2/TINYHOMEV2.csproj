@@ -89,6 +89,7 @@
       <DependentUpon>Camera.cs</DependentUpon>
     </Compile>
     <Compile Include="DatabaseConnectie.cs" />
+    <Compile Include="Logboek.cs" />
     <Compile Include="Tinyhome.cs">
       <SubType>Form</SubType>
     </Compile>

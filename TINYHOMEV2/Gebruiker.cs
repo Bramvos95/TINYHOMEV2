@@ -8,6 +8,7 @@ namespace TINYHOMEV2
 {
     class Gebruiker
     {
+        // variabelen
         private string naam;
         private int id;
 

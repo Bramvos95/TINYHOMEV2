@@ -29,7 +29,7 @@ namespace TINYHOMEV2
             Sender = sender;
         }
 
-        private void redSlider_Scroll(object sender, EventArgs e)
+        private void redSlider_Scroll(object sender, EventArgs e) // als de slider van waarde verandert wordt er een commando gestuurd met de juiste kleur
         {
             redTextBox.Text = redSlider.Value.ToString();
             int r = redSlider.Value;
@@ -39,13 +39,13 @@ namespace TINYHOMEV2
 
         private void greenSlider_Scroll(object sender, EventArgs e)
         {
-            greenTextBox.Text = greenSlider.Value.ToString();
+            greenTextBox.Text = greenSlider.Value.ToString();// als de slider van waarde verandert wordt er een commando gestuurd met de juiste kleur
             int g = greenSlider.Value;
             Sendmessage("groen", g);
             ToHex();
         }
 
-        private void blueSlider_Scroll(object sender, EventArgs e)
+        private void blueSlider_Scroll(object sender, EventArgs e) // als de slider van waarde verandert wordt er een commando gestuurd met de juiste kleur
         {
             blueTextBox.Text = blueSlider.Value.ToString();
             int b = greenSlider.Value;
@@ -59,23 +59,26 @@ namespace TINYHOMEV2
             pcColorPanel.BackColor = MyColor;
         }
 
-        private void Sendmessage(string kleur, int a)
+        private void Sendmessage(string kleur, int a) // hier wordt gecontroleeerd welke lamp er bediend moet worden en welke kleu er verzonden moet worden
         {
-            if (Sender == "RGBLED1")
+            if (Sender == "RGBLED1") 
             {
                 if (kleur == "rood")
                 {
                     parent.Sm.SendMessage("SET_LIVINGROOMRGBLEDRED:" + a);
+                    parent.Lg.schrijfLog("Admin:", "WoonkamerRGB-Rood:" + a.ToString(), DateTime.Now.ToString("h:mm:ss tt"));
                     parent.Db.UpdateRGB(Hex, "Woonkamer_Stalamp");
                 }
                 if (kleur == "groen")
                 {
                     parent.Sm.SendMessage("SET_LIVINGROOMRGBLEDGREEN:" + a);
+                    parent.Lg.schrijfLog("Admin:", "WoonkamerRGB-Groen:" + a.ToString(), DateTime.Now.ToString("h:mm:ss tt"));
                     parent.Db.UpdateRGB(Hex, "Woonkamer_Stalamp");
                 }
                 if (kleur == "blauw")
                 {
                     parent.Sm.SendMessage("SET_LIVINGROOMRGBLEDBLUE:" + a);
+                    parent.Lg.schrijfLog("Admin:", "WoonkamerRGB-Blauw:" + a.ToString(), DateTime.Now.ToString("h:mm:ss tt"));
                     parent.Db.UpdateRGB(Hex, "Woonkamer_Stalamp");
                 }
             }
@@ -84,16 +87,19 @@ namespace TINYHOMEV2
                 if (kleur == "rood")
                 {
                     parent.Sm.SendMessage("SET_BEDROOMRGBLEDRED:" + a);
+                    parent.Lg.schrijfLog("Admin:", "SlaapkamerRGB-Rood:" + a.ToString(), DateTime.Now.ToString("h:mm:ss tt"));
                     parent.Db.UpdateRGB(Hex, "Woonkamer_Stalamp");
                 }
                 if (kleur == "groen")
                 {
                     parent.Sm.SendMessage("SET_BEDROOMRGBLEDGREEN:" + a);
+                    parent.Lg.schrijfLog("Admin:", "SlaapkamerRGB-Groen:" + a.ToString(), DateTime.Now.ToString("h:mm:ss tt"));
                     parent.Db.UpdateRGB(Hex, "Woonkamer_Stalamp");
                 }
                 if (kleur == "blauw")
                 {
                     parent.Sm.SendMessage("SET_BEDROOMRGBLEDBLUE:" + a);
+                    parent.Lg.schrijfLog("Admin:", "SlaapkamerRGB-Blauw:" + a.ToString(), DateTime.Now.ToString("h:mm:ss tt"));
                     parent.Db.UpdateRGB(Hex, "Woonkamer_Stalamp");
                 }
             }
@@ -101,7 +107,7 @@ namespace TINYHOMEV2
 
         private void button1_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Hide(); //het form wordt verborgen
         }
     }
 }

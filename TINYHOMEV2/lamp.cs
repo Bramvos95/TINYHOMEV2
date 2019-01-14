@@ -8,6 +8,7 @@ namespace TINYHOMEV2
 {
     class lamp
     {
+        // variabelen
         private string naam;
         private int status;
         private int hex;
