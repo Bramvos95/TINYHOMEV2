@@ -44,6 +44,7 @@ namespace TINYHOMEV2
             lamp = new lamp();
             readMessageTimer.Interval = 10;
             readMessageTimer.Tick += new EventHandler(ReadMessageTimer_Tick);
+            readMessageTimer.Start();
             Connect(Db.Arduinolaatste());
             FillCheckBox();
             pbDag.Image = Image.FromFile("\\\\Mac\\Home\\Downloads\\dagweergave.png");
@@ -104,46 +105,37 @@ namespace TINYHOMEV2
 
         private void processReceivedMessage(string message)
         {
-            if (message.StartsWith("TEMPERATUUR:")){
-                int value = getParamValue(message);
+            if (message.StartsWith("TEMPERATUUR")){
+                Decimal value = getParamValue(message);
                 lblGraden.Text = value.ToString();
                 Temperatuur = value;
-            }else if (message.StartsWith("LUCHTVOCHTIGHEID:")){
-                int value = getParamValue(message);
+            }else if (message.StartsWith("LUCHTVOCHTIGHEID")){
+                Decimal value = getParamValue(message);
                 lblLuchtvochtigheid.Text = value.ToString();
                 Luchtvochtigheid = value;
             }
-            //if (message == "ARDUINO_CONTROL")
-            //{
-            //    whoIsInControlLabel.Text = "Arduino";
-            //}
-            //else if (message.StartsWith("RED_STATUS:"))
-            //{
-            //    int value = getParamValue(message);
-            //    arduinoRedTextBox.Text = value.ToString();
-            //    arduinoColorPanel.BackColor = Color.FromArgb(value, arduinoColorPanel.BackColor.G, arduinoColorPanel.BackColor.B);
-            //}
-            //else if (message.StartsWith("GREEN_STATUS:"))
-            //{
-            //    int value = getParamValue(message);
-            //    arduinoGreenTextBox.Text = value.ToString();
-            //    arduinoColorPanel.BackColor = Color.FromArgb(arduinoColorPanel.BackColor.R, value, arduinoColorPanel.BackColor.B);
-            //}
-            //else if (message.StartsWith("BLUE_STATUS:"))
-            //{
-            //    int value = getParamValue(message);
-            //    arduinoBlueTextBox.Text = value.ToString();
-            //    arduinoColorPanel.BackColor = Color.FromArgb(arduinoColorPanel.BackColor.R, arduinoColorPanel.BackColor.G, value);
-            //}
         }
-        private int getParamValue(string message)
+
+        private void disconnect()
+        {
+            try
+            {
+                readMessageTimer.Enabled = false;
+                sm.Disconnect();
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message);
+            }
+        }
+        private Decimal getParamValue(string message)
         {
             int colonIndex = message.IndexOf(':');
             if (colonIndex != -1)
             {
                 string param = message.Substring(colonIndex + 1);
-                int value;
-                bool done = int.TryParse(param, out value);
+                Decimal value;
+                bool done = Decimal.TryParse(param, out value);
                 if (done)
                 {
                     return value;
@@ -184,13 +176,13 @@ namespace TINYHOMEV2
         private void checkBox1_CheckedChanged_1(object sender, EventArgs e)
         {
             lamp.Naam = "Woonkamer_Stalamp";
-            SetLed("SET_BEDROOMLED:TRUE", "SET_BEDROOMLED:FALSE", sender);
+            SetLed("SET_LIVINGROOMRGBLED:TRUE", "SET_LIVINGROOMRGBLED:FALSE", sender);
         }
 
         private void checkBox2_CheckedChanged_1(object sender, EventArgs e)
         {
             lamp.Naam = "Slaapkamer_Stalamp";
-            SetLed("SET_BEDROOMLED:TRUE", "SET_BEDROOMLED:FALSE", sender);
+            SetLed("SET_BEDROOMRGBLED:FALSE", "SET_BEDROOMRGBLED:TRUE", sender);
         }
         private void checkBox6_CheckedChanged(object sender, EventArgs e)
         {
@@ -234,22 +226,22 @@ namespace TINYHOMEV2
         
         private void button1_Click(object sender, EventArgs e)
         {
-            sm.SendMessage("SET_BEDROOMSHUTTER:TRUE");
+            sm.SendMessage("SET_SHUTTERBEDROOM:TRUE");
         }
         
         private void button5_Click(object sender, EventArgs e)
         {
-            sm.SendMessage("SET_BEDROOMSHUTTER:FALSE");
+            sm.SendMessage("SET_SHUTTERBEDROOM:FALSE");
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
-            sm.SendMessage("SET_BATHROOMSHUTTER:TRUE");
+            sm.SendMessage("SET_SHUTTERBATHROOM:TRUE");
         }
         
         private void button2_Click(object sender, EventArgs e)
         {
-            sm.SendMessage("SET_BATHROOMSHUTTER:FALSE");
+            sm.SendMessage("SET_SHUTTERBATHROOM:FALSE");
         }
 
         private void button9_Click(object sender, EventArgs e)

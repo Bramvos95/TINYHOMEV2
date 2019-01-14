@@ -24,7 +24,8 @@ namespace TINYHOMEV2
 
         private void Initialize()
         {
-            server = "studmysql01.fhict.local";
+            //server = "studmysql01.fhict.local";
+            server = "192.168.15.54";
             database = "dbi416683";
             uid = "dbi416683";
             wachtwoord = "Tinyhome";

@@ -32,39 +32,70 @@ namespace TINYHOMEV2
         private void redSlider_Scroll(object sender, EventArgs e)
         {
             redTextBox.Text = redSlider.Value.ToString();
+            int r = redSlider.Value;
+            Sendmessage("rood", r);
             ToHex();
         }
 
         private void greenSlider_Scroll(object sender, EventArgs e)
         {
             greenTextBox.Text = greenSlider.Value.ToString();
+            int g = greenSlider.Value;
+            Sendmessage("groen", g);
             ToHex();
         }
 
         private void blueSlider_Scroll(object sender, EventArgs e)
         {
             blueTextBox.Text = blueSlider.Value.ToString();
+            int b = greenSlider.Value;
+            Sendmessage("blauw", b);
             ToHex();
         }
     
         private void ToHex()
         {
             MyColor = Color.FromArgb(redSlider.Value, greenSlider.Value, blueSlider.Value);
-            hex = MyColor.R.ToString("X2") + MyColor.G.ToString("X2") + MyColor.B.ToString("X2");
             pcColorPanel.BackColor = MyColor;
-            Sendmessage();
         }
 
-        private void Sendmessage()
+        private void Sendmessage(string kleur, int a)
         {
-            if(Sender == "RGBLED1"){
-                parent.Sm.SendMessage("SET_LIVINGROOMRGBLED:" + Hex);
-                parent.Db.UpdateRGB(Hex, "Woonkamer_Stalamp");
-
-            }else if(Sender == "RGBLED2")
+            if (Sender == "RGBLED1")
             {
-                parent.Sm.SendMessage("SET_BEDROOMRGBLED:" + Hex);
-                parent.Db.UpdateRGB(Hex, "Slaapkamer_Stalamp");
+                if (kleur == "rood")
+                {
+                    parent.Sm.SendMessage("SET_LIVINGROOMRGBLEDRED:" + a);
+                    parent.Db.UpdateRGB(Hex, "Woonkamer_Stalamp");
+                }
+                if (kleur == "groen")
+                {
+                    parent.Sm.SendMessage("SET_LIVINGROOMRGBLEDGREEN:" + a);
+                    parent.Db.UpdateRGB(Hex, "Woonkamer_Stalamp");
+                }
+                if (kleur == "blauw")
+                {
+                    parent.Sm.SendMessage("SET_LIVINGROOMRGBLEDBLUE:" + a);
+                    parent.Db.UpdateRGB(Hex, "Woonkamer_Stalamp");
+                }
+            }
+            else if (Sender == "RGBLED2")
+            {
+                if (kleur == "rood")
+                {
+                    parent.Sm.SendMessage("SET_BEDROOMRGBLEDRED:" + a);
+                    parent.Db.UpdateRGB(Hex, "Woonkamer_Stalamp");
+                }
+                if (kleur == "groen")
+                {
+                    parent.Sm.SendMessage("SET_BEDROOMRGBLEDGREEN:" + a);
+                    parent.Db.UpdateRGB(Hex, "Woonkamer_Stalamp");
+                }
+                if (kleur == "blauw")
+                {
+                    parent.Sm.SendMessage("SET_BEDROOMRGBLEDBLUE:" + a);
+                    parent.Db.UpdateRGB(Hex, "Woonkamer_Stalamp");
+                }
             }
         }
 

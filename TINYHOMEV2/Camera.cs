@@ -22,7 +22,7 @@ namespace TINYHOMEV2
             }
             catch(Exception exc)
             {
-                Console.WriteLine()
+                Console.WriteLine(exc);
             }
         }
 
