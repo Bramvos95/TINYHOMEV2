@@ -70,11 +70,13 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(368, 583);
+            this.button1.Font = new System.Drawing.Font("Open Sans", 10F);
+            this.button1.ForeColor = System.Drawing.Color.DimGray;
+            this.button1.Location = new System.Drawing.Point(288, 588);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(119, 57);
+            this.button1.Size = new System.Drawing.Size(252, 57);
             this.button1.TabIndex = 5;
-            this.button1.Text = "Close";
+            this.button1.Text = "CLOSE";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -108,7 +110,7 @@
             // pcColorPanel
             // 
             this.pcColorPanel.BackColor = System.Drawing.Color.Black;
-            this.pcColorPanel.Location = new System.Drawing.Point(288, 148);
+            this.pcColorPanel.Location = new System.Drawing.Point(288, 394);
             this.pcColorPanel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pcColorPanel.Name = "pcColorPanel";
             this.pcColorPanel.Size = new System.Drawing.Size(252, 172);

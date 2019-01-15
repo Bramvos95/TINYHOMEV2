@@ -37,7 +37,7 @@
             // axWindowsMediaPlayer1
             // 
             this.axWindowsMediaPlayer1.Enabled = true;
-            this.axWindowsMediaPlayer1.Location = new System.Drawing.Point(65, 56);
+            this.axWindowsMediaPlayer1.Location = new System.Drawing.Point(65, 30);
             this.axWindowsMediaPlayer1.Name = "axWindowsMediaPlayer1";
             this.axWindowsMediaPlayer1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer1.OcxState")));
             this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(550, 424);
@@ -45,11 +45,12 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(163, 610);
+            this.button1.Font = new System.Drawing.Font("Open Sans", 10F);
+            this.button1.Location = new System.Drawing.Point(1251, 56);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(213, 67);
+            this.button1.Size = new System.Drawing.Size(135, 67);
             this.button1.TabIndex = 1;
-            this.button1.Text = "sluit";
+            this.button1.Text = "SLUIT";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -58,7 +59,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(40)))), ((int)(((byte)(49)))));
-            this.ClientSize = new System.Drawing.Size(1084, 848);
+            this.ClientSize = new System.Drawing.Size(1596, 1542);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.axWindowsMediaPlayer1);
             this.Name = "Camera";

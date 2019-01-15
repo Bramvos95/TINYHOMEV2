@@ -53,15 +53,8 @@ namespace TINYHOMEV2
             readMessageTimer.Start();
             Connect(Db.Arduinolaatste());
             FillCheckBox();
-            try
-            {
-                pbDag.Image = Image.FromFile("\\\\Mac\\Home\\Downloads\\dagweergave.png");
-                label4.Text = "24.000 KW";
-            }
-            catch(Exception exc)
-            {
-                Console.WriteLine(exc);
-            }
+            sm.SendMessage("GET_INFORMATION");
+            comboBox1.SelectedItem = 0;
         }
 
         public void Connect(Arduino arduino)
@@ -284,29 +277,31 @@ namespace TINYHOMEV2
             {
                 if (value == 0)
                 {
-                    pbDag.Image = Image.FromFile("\\\\Mac\\Home\\Downloads\\dagweergave.png");
-                    label4.Text = "24.000 KW";
+                    pbDag.BackgroundImage = Image.FromFile("\\\\Mac\\Home\\Downloads\\dag.png");
                 }
                 else if (value == 1)
                 {
-                    pbDag.Image = Image.FromFile("\\\\Mac\\Home\\Downloads\\cropped-stroom-concept-1-1.jpg");
-                    label4.Text = "94.000 KW";
+                    pbDag.BackgroundImage = Image.FromFile("\\\\Mac\\Home\\Downloads\\week.png");
                 }
                 else if (value == 2)
                 {
-                    pbDag.Image = Image.FromFile("\\\\Mac\\Home\\Downloads\\sticker-pas-op-_stroom.png");
-                    label4.Text = "182.073 KW";
+                    pbDag.BackgroundImage = Image.FromFile("\\\\Mac\\Home\\Downloads\\maand.png");
                 }
                 else if (value == 3)
                 {
-                    pbDag.Image = Image.FromFile("\\\\Mac\\Home\\Downloads\\Grafiek-zonnepanelen.jpg");
-                    label4.Text = "939.811 KW";
+                    pbDag.BackgroundImage = Image.FromFile("\\\\Mac\\Home\\Downloads\\jaar.png");
+            
                 }
             }
             catch(Exception exc)
             {
                 Console.WriteLine(exc);
             }
+        }
+
+        private void pbDag_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

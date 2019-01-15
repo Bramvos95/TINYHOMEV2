@@ -128,7 +128,8 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(432, 336);
+            this.button1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.button1.Location = new System.Drawing.Point(20, 291);
             this.button1.Margin = new System.Windows.Forms.Padding(6);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(212, 48);
@@ -242,10 +243,11 @@
             // 
             // button2
             // 
+            this.button2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.button2.Location = new System.Drawing.Point(57, 221);
             this.button2.Margin = new System.Windows.Forms.Padding(6);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(212, 48);
+            this.button2.Size = new System.Drawing.Size(175, 47);
             this.button2.TabIndex = 13;
             this.button2.Text = "Add user";
             this.button2.UseVisualStyleBackColor = true;
@@ -267,7 +269,8 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(456, 820);
+            this.button3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.button3.Location = new System.Drawing.Point(1038, 32);
             this.button3.Margin = new System.Windows.Forms.Padding(6);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(212, 48);
